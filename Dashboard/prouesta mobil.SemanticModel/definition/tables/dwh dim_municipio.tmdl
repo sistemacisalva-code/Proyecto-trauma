@@ -1,0 +1,31 @@
+table 'dwh dim_municipio'
+	lineageTag: 535a114f-58ce-434a-b140-f9c9b121a884
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 870b3a34-326b-4f8c-996a-98c65cd0e84d
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre
+		dataType: string
+		lineageTag: 7dd02ce1-3957-4642-a1bc-24c0bce34d07
+		summarizeBy: none
+		sourceColumn: nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dwh dim_municipio' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost", "bdw_trauma"),
+				    dwh_dim_municipio = Origen{[Schema="dwh",Item="dim_municipio"]}[Data]
+				in
+				    dwh_dim_municipio
+
+	annotation PBI_ResultType = Table
+

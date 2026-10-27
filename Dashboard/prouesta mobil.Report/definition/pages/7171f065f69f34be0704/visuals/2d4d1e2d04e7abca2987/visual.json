@@ -1,0 +1,203 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "2d4d1e2d04e7abca2987",
+  "position": {
+    "x": 650,
+    "y": 516.25,
+    "z": 13001,
+    "height": 245,
+    "width": 581.25,
+    "tabOrder": 13001
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwh dim_calendario"
+                    }
+                  },
+                  "Property": "dia_semana"
+                }
+              },
+              "queryRef": "dwh dim_calendario.dia_semana",
+              "nativeQueryRef": "dia_semana",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dwh dim_horario"
+                    }
+                  },
+                  "Property": "Franja horaria"
+                }
+              },
+              "queryRef": "dwh dim_horario.Franja horaria",
+              "nativeQueryRef": "First Franja horaria",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dwh dim_hechos"
+                        }
+                      },
+                      "Property": "trauma_register_record_id"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Count(dwh dim_hechos.trauma_register_record_id)",
+              "nativeQueryRef": "Count of trauma_register_record_id1"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "FillRule": {
+                      "Input": {
+                        "Aggregation": {
+                          "Expression": {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Entity": "dwh dim_hechos"
+                                }
+                              },
+                              "Property": "trauma_register_record_id"
+                            }
+                          },
+                          "Function": 2
+                        }
+                      },
+                      "FillRule": {
+                        "linearGradient2": {
+                          "min": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'minColor'"
+                              }
+                            }
+                          },
+                          "max": {
+                            "color": {
+                              "Literal": {
+                                "Value": "'maxColor'"
+                              }
+                            }
+                          },
+                          "nullColoringStrategy": {
+                            "strategy": {
+                              "Literal": {
+                                "Value": "'asZero'"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Count(dwh dim_hechos.trauma_register_record_id)"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "0b7bcc3c15618e4eec63",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwh dim_horario"
+              }
+            },
+            "Property": "Franja horaria"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "13c5aa92ac7659564a04",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dwh dim_hechos"
+                  }
+                },
+                "Property": "trauma_register_record_id"
+              }
+            },
+            "Function": 2
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "294defabd119f61dd904",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dwh dim_calendario"
+              }
+            },
+            "Property": "dia_semana"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

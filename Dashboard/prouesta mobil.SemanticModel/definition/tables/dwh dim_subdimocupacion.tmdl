@@ -1,0 +1,31 @@
+table 'dwh dim_subdimocupacion'
+	lineageTag: 25a4e94c-fb19-4b12-accb-6162db5d199f
+
+	column key_subdimocupacion
+		dataType: int64
+		formatString: 0
+		lineageTag: 0981eaac-106b-41e2-b4eb-6347947e204a
+		summarizeBy: sum
+		sourceColumn: key_subdimocupacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column ocupacion
+		dataType: string
+		lineageTag: b877383c-d669-46e4-9073-7367f938ac09
+		summarizeBy: none
+		sourceColumn: ocupacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dwh dim_subdimocupacion' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost", "bdw_trauma"),
+				    dwh_dim_subdimocupacion = Origen{[Schema="dwh",Item="dim_subdimocupacion"]}[Data]
+				in
+				    dwh_dim_subdimocupacion
+
+	annotation PBI_ResultType = Table
+

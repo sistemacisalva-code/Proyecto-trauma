@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "55e7e8aea95730e46158",
+  "position": {
+    "x": 126,
+    "y": 208,
+    "z": 2000,
+    "height": 150,
+    "width": 330,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dwh dim_hechos"
+                        }
+                      },
+                      "Property": "trauma_register_record_id"
+                    }
+                  },
+                  "Function": 2
+                }
+              },
+              "queryRef": "Sum(dwh dim_hechos.trauma_register_record_id)",
+              "nativeQueryRef": "Count of trauma_register_record_id"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dwh dim_hechos"
+                      }
+                    },
+                    "Property": "trauma_register_record_id"
+                  }
+                },
+                "Function": 2
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

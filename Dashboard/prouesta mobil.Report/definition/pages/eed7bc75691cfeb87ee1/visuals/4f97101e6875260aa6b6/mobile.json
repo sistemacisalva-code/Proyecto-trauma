@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.7.0/schema.json",
+  "position": {
+    "x": 0,
+    "y": 222,
+    "z": 3000,
+    "height": 43,
+    "width": 324,
+    "tabOrder": 3000
+  },
+  "objects": {
+    "icon": [],
+    "text": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      },
+      {
+        "properties": {
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Perfil Demografico'"
+              }
+            }
+          }
+        },
+        "selector": {
+          "id": "default"
+        }
+      }
+    ],
+    "fill": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      },
+      {
+        "properties": {
+          "fillColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 2,
+                    "Percent": 0.6
+                  }
+                }
+              }
+            }
+          }
+        },
+        "selector": {
+          "id": "default"
+        }
+      }
+    ]
+  },
+  "visualContainerObjects": {
+    "visualLink": [
+      {
+        "properties": {
+          "navigationSection": {
+            "expr": {
+              "Literal": {
+                "Value": "'43baa5828c58279840a2'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

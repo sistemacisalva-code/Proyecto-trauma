@@ -1,0 +1,31 @@
+relationship b9c1040a-a249-413b-af3e-b5eaeb9483b0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dwh dim_calendario'.fecha
+	toColumn: LocalDateTable_b43074d1-9acf-45ed-aaac-6e3121662cee.Date
+
+relationship AutoDetected_c1f9db4c-f89a-4e70-acab-0841fd7ed465
+	fromColumn: 'dwh dim_hechos'.key_perfil_dem
+	toColumn: 'dwh dim_perfildem'.key_perfil_dem
+
+relationship AutoDetected_8d93332d-2e78-4e47-a198-3dc0cdddc8b2
+	fromColumn: 'dwh dim_hechos'.key_tipotrauma
+	toColumn: 'dwh dim_trauma'.key_tipotrauma
+
+relationship 3160d9c2-13ff-1ab6-7e23-60a2a6d4cdab
+	fromColumn: 'dwh dim_hechos'.municipio
+	toColumn: 'dwh dim_municipio'.id
+
+relationship c4ec17ac-afa2-bc23-e5be-807075b6dcf7
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'dwh dim_subdimtrauma'.descripcion_tipo_subtrauma
+	toColumn: 'dwh dim_trauma'.descripcion_tipo_subtrauma
+
+relationship aa9d8750-c923-2f0c-48e1-7dbed12b1c85
+	fromColumn: 'dwh dim_hechos'.hora_de_llegada_del_paciente
+	toColumn: 'dwh dim_horario'.id_horario
+
+relationship 7fdc2e74-beb8-7ee3-6e96-f2f55a9dd05d
+	fromColumn: 'dwh dim_hechos'.fecha_de_llegada_del_paciente
+	toColumn: 'dwh dim_calendario'.id_fecha
+

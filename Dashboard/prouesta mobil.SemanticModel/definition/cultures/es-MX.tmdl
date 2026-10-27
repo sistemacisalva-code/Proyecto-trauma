@@ -1,0 +1,4248 @@
+cultureInfo es-MX
+
+	linguisticMetadata =
+			{
+			  "Version": "4.1.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dwh_dim_calendario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dwh dim_calendario": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.id_fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "ConceptualProperty": "id_fecha"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id fecha": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_fecha": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential fecha": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "ConceptualProperty": "fecha"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dwh_dim_calendario.fecha.jerarquía_de_fecha": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "VariationSource": "fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "jerarquía de fecha": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.fecha.año": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "VariationSource": "fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Año"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "año": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha año": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.fecha.trimestre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "VariationSource": "fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Trimestre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trimestre": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha trimestre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.fecha.me": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "VariationSource": "fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Mes"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "me": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha me": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.fecha.día": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "VariationSource": "fecha",
+			          "VariationSet": "Variación",
+			          "Hierarchy": "Jerarquía de fechas",
+			          "HierarchyLevel": "Día"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "día": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha día": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.dia_semana": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "ConceptualProperty": "dia_semana"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dia semana": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "dia_semana": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.es_festivo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "ConceptualProperty": "es_festivo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "es festivo": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "es_festivo": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_horario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dwh dim_horario": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario.id_horario": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_horario",
+			          "ConceptualProperty": "id_horario"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id horario": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id_horario": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "identification horario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identity horario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "identifier horario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "credential horario": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario.hora_larga": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_horario",
+			          "ConceptualProperty": "hora_larga"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hora larga": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hora_larga": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "time": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
+			    },
+			    "dwh_dim_horario.hora": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_horario",
+			          "ConceptualProperty": "hora"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hora": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario.minuto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_horario",
+			          "ConceptualProperty": "minuto"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "minuto": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario.intervalo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_horario",
+			          "ConceptualProperty": "intervalo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "intervalo": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dwh dim_hecho": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Identifier"
+			    },
+			    "dwh_dim_hecho.trauma_register_record_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "trauma_register_record_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trauma register record id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "trauma_register_record_id": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "record": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "register record": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "trauma register record": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "record id": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "register record id": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "trauma register record identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "trauma register record identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "trauma register record identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "register record identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "register record identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "register record identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "record identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "record identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "record identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "trauma register record credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.fecha_de_llegada_del_paciente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "fecha_de_llegada_del_paciente"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "fecha de llegada del paciente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha_de_llegada_del_paciente": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.hora_de_llegada_del_paciente": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "hora_de_llegada_del_paciente"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "hora de llegada del paciente": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hora_de_llegada_del_paciente": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.fecha_de_llegada_del_medico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "fecha_de_llegada_del_medico"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha de llegada del medico": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha_de_llegada_del_medico": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.hora_de_llegada_del_medico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "hora_de_llegada_del_medico"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hora de llegada del medico": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hora_de_llegada_del_medico": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.fecha_de_la_disposicion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "fecha_de_la_disposicion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha de la disposicion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha_de_la_disposicion": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.hora_de_la_disposicion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "hora_de_la_disposicion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hora de la disposicion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hora_de_la_disposicion": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.fecha_de_alta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "fecha_de_alta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fecha de alta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "fecha_de_alta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.hora_de_alta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "hora_de_alta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "hora de alta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hora_de_alta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.municipio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "municipio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "municipio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.key_perfil_dem": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "key_perfil_dem"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "key perfil dem": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "key_perfil_dem": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.key_tipotrauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "key_tipotrauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "key tipotrauma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "key_tipotrauma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.tiempo_en_sala_de_emergencias_hora": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "tiempo_en_sala_de_emergencias_horas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tiempo en sala de emergencias hora": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tiempo en sala de emergencia hora": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "tiempo_en_sala_de_emergencias_horas": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.tiempo_en_sala_de_emergencias_minuto": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "tiempo_en_sala_de_emergencias_minutos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tiempo en sala de emergencias minuto": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tiempo en sala de emergencia minuto": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "tiempo_en_sala_de_emergencias_minutos": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.muerte_prevenible": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "muerte_prevenible"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "muerte prevenible": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "muerte_prevenible": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.muerte_prevenible_del_hospitalizacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "muerte_prevenible_del_hospitalizacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "muerte prevenible del hospitalizacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "muerte_prevenible_del_hospitalizacion": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.descripcion_del_diagnostico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "descripcion_del_diagnostico"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descripcion del diagnostico": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "descripcion_del_diagnostico": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.motivo_de_consulta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "motivo_de_consulta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "motivo de consulta": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "motivo_de_consulta": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_municipio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_municipio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dwh dim_municipio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_municipio.id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_municipio",
+			          "ConceptualProperty": "id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Identifier"
+			    },
+			    "dwh_dim_municipio.nombre": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_municipio",
+			          "ConceptualProperty": "nombre"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "nombre": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_perfildem"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dwh dim_perfildem": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem.key_perfil_dem": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_perfildem",
+			          "ConceptualProperty": "key_perfil_dem"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "key perfil dem": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "key_perfil_dem": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem.genero": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_perfildem",
+			          "ConceptualProperty": "genero"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "genero": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Género": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem.estado_civil": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_perfildem",
+			          "ConceptualProperty": "estado_civil"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "estado civil": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "estado_civil": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem.ocupacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_perfildem",
+			          "ConceptualProperty": "ocupacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ocupacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Ocupación": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimocupacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_subdimocupacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dwh dim_subdimocupacion": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimocupacion.key_subdimocupacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_subdimocupacion",
+			          "ConceptualProperty": "key_subdimocupacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "key subdimocupacion": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "key_subdimocupacion": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimocupacion.ocupacion": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_subdimocupacion",
+			          "ConceptualProperty": "ocupacion"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ocupacion": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimtrauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_subdimtrauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dwh dim_subdimtrauma": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimtrauma.key_tiposubdimtrauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_subdimtrauma",
+			          "ConceptualProperty": "key_tiposubdimtrauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "key tiposubdimtrauma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "key_tiposubdimtrauma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimtrauma.trauma_register_record_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_subdimtrauma",
+			          "ConceptualProperty": "trauma_register_record_id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "trauma register record id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "trauma_register_record_id": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "record": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "register record": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "trauma register record": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "record id": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "register record id": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "trauma register record identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "trauma register record identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "trauma register record identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "register record identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "register record identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "register record identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "record identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "record identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "record identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "trauma register record credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimtrauma.descripcion_tipo_subtrauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_subdimtrauma",
+			          "ConceptualProperty": "descripcion_tipo_subtrauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "descripcion tipo subtrauma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "descripcion_tipo_subtrauma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_trauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dwh dim_trauma": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma.key_tipotrauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_trauma",
+			          "ConceptualProperty": "key_tipotrauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "key tipotrauma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "key_tipotrauma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma.tipo_trauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_trauma",
+			          "ConceptualProperty": "tipo_trauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo trauma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tipo_trauma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "tipo disturbance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "tipo ordeal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "tipo shock": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo upset": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo suffering": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo pain": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo strain": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo distress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "tipo damage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma.descripcion_tipo_trauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_trauma",
+			          "ConceptualProperty": "descripcion_tipo_trauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descripcion tipo trauma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "descripcion_tipo_trauma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "descripcion tipo disturbance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "descripcion tipo ordeal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "descripcion tipo shock": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "descripcion tipo upset": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "descripcion tipo suffering": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "descripcion tipo pain": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "descripcion tipo strain": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "descripcion tipo distress": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "descripcion tipo damage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma.tipo_subtrauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_trauma",
+			          "ConceptualProperty": "tipo_subtrauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "tipo subtrauma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "tipo_subtrauma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma.descripcion_tipo_subtrauma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_trauma",
+			          "ConceptualProperty": "descripcion_tipo_subtrauma"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "descripcion tipo subtrauma": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "descripcion_tipo_subtrauma": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.day_of_week_number": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "ConceptualProperty": "DayOfWeekNumber"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "day of week number": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "DayOfWeekNumber": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "day of week no": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.promedio_tiempo_urgencias_H": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "PromedioTiempoUrgenciasH"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "promedio tiempo urgencias H": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PromedioTiempoUrgenciasH": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Promedio de tiempo en sala de emergencias (Horas)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.promedio_horas_estancia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "PromedioHorasEstancia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "promedio horas estancia": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PromedioHorasEstancia": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Promedio de tiempo entre la llegada del paciente y el alta (Horas)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.anio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "ConceptualProperty": "anio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "anio": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario.diame": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_calendario",
+			          "ConceptualProperty": "Diames"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "diame": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.promedio_tiempo_medico": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "PromedioTiempoMedico"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "promedio tiempo medico": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PromedioTiempoMedico": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem.quinquenio": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_perfildem",
+			          "ConceptualProperty": "quinquenio"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "quinquenio": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Rango Edad": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho.del_total_de_casos": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "dwh dim_hechos",
+			          "ConceptualProperty": "% del Total de Casos"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% del total de casos": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "percentage del total de caso": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.624
+			          }
+			        },
+			        {
+			          "pct del total de caso": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "% del aggregate de caso": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "% del overall de caso": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "dwh_dim_calendario_fecha_año_has_dwh_dim_calendario_fecha_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario.fecha.año": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.año"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.año"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "años_have_trimestres"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.trimestre"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_años"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.trimestre"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_are_in_años"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_fecha_jerarquía_de_fecha_has_dwh_dim_calendario_fecha_día": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha.día": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_días"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_fecha_jerarquía_de_fecha_has_dwh_dim_calendario_fecha_me": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha.me": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_me"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_fecha_jerarquía_de_fecha_has_dwh_dim_calendario_fecha_trimestre": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.trimestre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_trimestres"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_fecha_jerarquía_de_fecha_has_dwh_dim_calendario_fecha_año": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha.año": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.año"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.año"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "jerarquía_de_fechas_have_años"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_fecha_has_jerarquía_de_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario.fecha": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha.jerarquía_de_fecha": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.jerarquía_de_fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fechas_have_jerarquía_de_fechas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimtrauma_has_dwh_dim_trauma": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_subdimtrauma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_subdimtrauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimtrauma"
+			          }
+			        },
+			        "dwh_dim_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_subdimtrauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_trauma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_subdimtraumas_have_dwh_dim_traumas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_dwh_dim_calendario": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_calendario": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_dwh_dim_calendarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_calendarios_have_dwh_dim_hechos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_dwh_dim_horario": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_horario": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_horario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_dwh_dim_horarios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_horario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_horarios_have_dwh_dim_hechos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_dwh_dim_municipio": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_municipio": {
+			          "Target": {
+			            "Entity": "dwh_dim_municipio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_municipio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_dwh_dim_municipios"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_municipios_have_dwh_dim_hechos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_dwh_dim_trauma": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_trauma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_dwh_dim_traumas"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_trauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_traumas_have_dwh_dim_hechos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_dwh_dim_perfildem": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_perfildem": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem"
+			          },
+			          "Nouns": [
+			            {
+			              "key perfil dem": {
+			                "State": "Generated"
+			              }
+			            }
+			          ]
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_perfildem"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_dwh_dim_perfildems"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_perfildem"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_perfildems_have_dwh_dim_hechos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_del_total_de_casos": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.del_total_de_casos": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.del_total_de_casos"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.del_total_de_casos"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have__del_total_de_casos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem_has_quinquenio": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_perfildem"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_perfildem": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem"
+			          }
+			        },
+			        "dwh_dim_perfildem.quinquenio": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem.quinquenio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_perfildem"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_perfildem.quinquenio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_perfildems_have_quinquenios"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_promedio_tiempo_medico": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.promedio_tiempo_medico": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.promedio_tiempo_medico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.promedio_tiempo_medico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_promedio_tiempo_medico"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_has_diame": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario"
+			          }
+			        },
+			        "dwh_dim_calendario.diame": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.diame"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.diame"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_calendarios_have_diames"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_has_anio": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario"
+			          }
+			        },
+			        "dwh_dim_calendario.anio": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.anio"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.anio"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_calendarios_have_anios"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_promedio_horas_estancia": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.promedio_horas_estancia": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.promedio_horas_estancia"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.promedio_horas_estancia"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_promedio_horas_estancia"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_promedio_tiempo_urgencias_H": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.promedio_tiempo_urgencias_H": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.promedio_tiempo_urgencias_H"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.promedio_tiempo_urgencias_H"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_promedio_tiempo_urgencias_H"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_has_day_of_week_number": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario"
+			          }
+			        },
+			        "dwh_dim_calendario.day_of_week_number": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.day_of_week_number"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.day_of_week_number"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_calendarios_have_day_of_week_number"
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma_has_descripcion_tipo_subtrauma": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_trauma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma"
+			          }
+			        },
+			        "dwh_dim_trauma.descripcion_tipo_subtrauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma.descripcion_tipo_subtrauma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_trauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_trauma.descripcion_tipo_subtrauma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_traumas_have_descripcion_tipo_subtraumas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma_has_tipo_subtrauma": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_trauma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma"
+			          }
+			        },
+			        "dwh_dim_trauma.tipo_subtrauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma.tipo_subtrauma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_trauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_trauma.tipo_subtrauma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_traumas_have_tipo_subtraumas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma_has_descripcion_tipo_trauma": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_trauma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma"
+			          }
+			        },
+			        "dwh_dim_trauma.descripcion_tipo_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma.descripcion_tipo_trauma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_trauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_trauma.descripcion_tipo_trauma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_traumas_have_descripcion_tipo_traumata"
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma_has_tipo_trauma": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_trauma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma"
+			          }
+			        },
+			        "dwh_dim_trauma.tipo_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma.tipo_trauma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_trauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_trauma.tipo_trauma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_traumas_have_tipo_traumata"
+			        }
+			      ]
+			    },
+			    "dwh_dim_trauma_has_key_tipotrauma": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_trauma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_trauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma"
+			          }
+			        },
+			        "dwh_dim_trauma.key_tipotrauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_trauma.key_tipotrauma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_trauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_trauma.key_tipotrauma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_traumas_have_key_tipotraumas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimtrauma_has_trauma_register_record_id": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_subdimtrauma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_subdimtrauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimtrauma"
+			          }
+			        },
+			        "dwh_dim_subdimtrauma.trauma_register_record_id": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimtrauma.trauma_register_record_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_subdimtrauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_subdimtrauma.trauma_register_record_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_subdimtraumas_have_trauma_register_record_ids"
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimtrauma_has_key_tiposubdimtrauma": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_subdimtrauma"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_subdimtrauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimtrauma"
+			          }
+			        },
+			        "dwh_dim_subdimtrauma.key_tiposubdimtrauma": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimtrauma.key_tiposubdimtrauma"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_subdimtrauma"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_subdimtrauma.key_tiposubdimtrauma"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_subdimtraumas_have_key_tiposubdimtraumas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimocupacion_has_ocupacion": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_subdimocupacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_subdimocupacion": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimocupacion"
+			          }
+			        },
+			        "dwh_dim_subdimocupacion.ocupacion": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimocupacion.ocupacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_subdimocupacion"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_subdimocupacion.ocupacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_subdimocupacions_have_ocupacions"
+			        }
+			      ]
+			    },
+			    "dwh_dim_subdimocupacion_has_key_subdimocupacion": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_subdimocupacion"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_subdimocupacion": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimocupacion"
+			          }
+			        },
+			        "dwh_dim_subdimocupacion.key_subdimocupacion": {
+			          "Target": {
+			            "Entity": "dwh_dim_subdimocupacion.key_subdimocupacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_subdimocupacion"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_subdimocupacion.key_subdimocupacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_subdimocupacions_have_key_subdimocupacions"
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem_has_ocupacion": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_perfildem"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_perfildem": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem"
+			          }
+			        },
+			        "dwh_dim_perfildem.ocupacion": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem.ocupacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_perfildem"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_perfildem.ocupacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_perfildems_have_ocupacions"
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem_has_estado_civil": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_perfildem"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_perfildem": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem"
+			          }
+			        },
+			        "dwh_dim_perfildem.estado_civil": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem.estado_civil"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_perfildem"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_perfildem.estado_civil"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_perfildems_have_estado_civil"
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem_has_genero": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_perfildem"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_perfildem": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem"
+			          }
+			        },
+			        "dwh_dim_perfildem.genero": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem.genero"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_perfildem"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_perfildem.genero"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_perfildems_have_generos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_perfildem_has_key_perfil_dem": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_perfildem"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_perfildem": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem"
+			          }
+			        },
+			        "dwh_dim_perfildem.key_perfil_dem": {
+			          "Target": {
+			            "Entity": "dwh_dim_perfildem.key_perfil_dem"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_perfildem"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_perfildem.key_perfil_dem"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_perfildems_have_key_perfil_dem"
+			        }
+			      ]
+			    },
+			    "dwh_dim_municipio_has_nombre": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_municipio": {
+			          "Target": {
+			            "Entity": "dwh_dim_municipio"
+			          }
+			        },
+			        "dwh_dim_municipio.nombre": {
+			          "Target": {
+			            "Entity": "dwh_dim_municipio.nombre"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_municipio.nombre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_municipios_have_nombres"
+			        }
+			      ]
+			    },
+			    "dwh_dim_municipio_has_id": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_municipio"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_municipio": {
+			          "Target": {
+			            "Entity": "dwh_dim_municipio"
+			          }
+			        },
+			        "dwh_dim_municipio.id": {
+			          "Target": {
+			            "Entity": "dwh_dim_municipio.id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_municipio"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_municipio.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_municipios_have_ids"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "dwh_dim_municipio"
+			            },
+			            "Name": {
+			              "Role": "dwh_dim_municipio.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ids_are_names_IDs_of_dwh_dim_municipios"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_motivo_de_consulta": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.motivo_de_consulta": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.motivo_de_consulta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.motivo_de_consulta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_motivo_de_consultas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_descripcion_del_diagnostico": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.descripcion_del_diagnostico": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.descripcion_del_diagnostico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.descripcion_del_diagnostico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_descripcion_del_diagnosticos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_muerte_prevenible_del_hospitalizacion": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.muerte_prevenible_del_hospitalizacion": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.muerte_prevenible_del_hospitalizacion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.muerte_prevenible_del_hospitalizacion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_muerte_prevenible_del_hospitalizacions"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_muerte_prevenible": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.muerte_prevenible": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.muerte_prevenible"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.muerte_prevenible"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_muerte_prevenibles"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_tiempo_en_sala_de_emergencias_minuto": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.tiempo_en_sala_de_emergencias_minuto": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.tiempo_en_sala_de_emergencias_minuto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.tiempo_en_sala_de_emergencias_minuto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_tiempo_en_sala_de_emergencias_minutos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_tiempo_en_sala_de_emergencias_hora": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.tiempo_en_sala_de_emergencias_hora": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.tiempo_en_sala_de_emergencias_hora"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.tiempo_en_sala_de_emergencias_hora"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_tiempo_en_sala_de_emergencias_horas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_hora_de_alta": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.hora_de_alta": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.hora_de_alta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.hora_de_alta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_hora_de_alta"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_fecha_de_alta": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.fecha_de_alta": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.fecha_de_alta"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.fecha_de_alta"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_fecha_de_alta"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_hora_de_la_disposicion": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.hora_de_la_disposicion": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.hora_de_la_disposicion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.hora_de_la_disposicion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_hora_de_la_disposicions"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_fecha_de_la_disposicion": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.fecha_de_la_disposicion": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.fecha_de_la_disposicion"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.fecha_de_la_disposicion"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_fecha_de_la_disposicions"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_hora_de_llegada_del_medico": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.hora_de_llegada_del_medico": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.hora_de_llegada_del_medico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.hora_de_llegada_del_medico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_hora_de_llegada_del_medicos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_fecha_de_llegada_del_medico": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.fecha_de_llegada_del_medico": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.fecha_de_llegada_del_medico"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.fecha_de_llegada_del_medico"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_fecha_de_llegada_del_medicos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_trauma_register_record_id": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.trauma_register_record_id": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.trauma_register_record_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.trauma_register_record_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_trauma_register_record_ids"
+			        }
+			      ]
+			    },
+			    "dwh_dim_hecho_has_id": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_hechos"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_hecho": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho"
+			          }
+			        },
+			        "dwh_dim_hecho.id": {
+			          "Target": {
+			            "Entity": "dwh_dim_hecho.id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_hecho.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_hechos_have_ids"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "dwh_dim_hecho"
+			            },
+			            "Name": {
+			              "Role": "dwh_dim_hecho.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ids_are_names_IDs_of_dwh_dim_hechos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario_has_intervalo": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_horario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_horario": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario"
+			          }
+			        },
+			        "dwh_dim_horario.intervalo": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario.intervalo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_horario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_horario.intervalo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_horarios_have_intervalos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario_has_minuto": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_horario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_horario": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario"
+			          }
+			        },
+			        "dwh_dim_horario.minuto": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario.minuto"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_horario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_horario.minuto"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_horarios_have_minutos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario_has_hora": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_horario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_horario": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario"
+			          }
+			        },
+			        "dwh_dim_horario.hora": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario.hora"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_horario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_horario.hora"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_horarios_have_horas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario_has_hora_larga": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_horario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_horario": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario"
+			          }
+			        },
+			        "dwh_dim_horario.hora_larga": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario.hora_larga"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_horario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_horario.hora_larga"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_horarios_have_hora_largas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_horario_has_id_horario": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_horario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_horario": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario"
+			          }
+			        },
+			        "dwh_dim_horario.id_horario": {
+			          "Target": {
+			            "Entity": "dwh_dim_horario.id_horario"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_horario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_horario.id_horario"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_horarios_have_id_horarios"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_has_es_festivo": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario"
+			          }
+			        },
+			        "dwh_dim_calendario.es_festivo": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.es_festivo"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.es_festivo"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_calendarios_have_es_festivos"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_has_dia_semana": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario"
+			          }
+			        },
+			        "dwh_dim_calendario.dia_semana": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.dia_semana"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.dia_semana"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_calendarios_have_dia_semanas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_has_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_calendarios_have_fechas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_has_id_fecha": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario"
+			          }
+			        },
+			        "dwh_dim_calendario.id_fecha": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.id_fecha"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.id_fecha"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dwh_dim_calendarios_have_id_fechas"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_fecha_trimestre_has_dwh_dim_calendario_fecha_me": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario.fecha.trimestre": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.trimestre"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha.me": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.me"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.trimestre"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "trimestres_have_me"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.me"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_trimestres"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.me"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.trimestre"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_are_in_trimestres"
+			        }
+			      ]
+			    },
+			    "dwh_dim_calendario_fecha_me_has_dwh_dim_calendario_fecha_día": {
+			      "Binding": {
+			        "ConceptualEntity": "dwh dim_calendario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dwh_dim_calendario.fecha.me": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.me"
+			          }
+			        },
+			        "dwh_dim_calendario.fecha.día": {
+			          "Target": {
+			            "Entity": "dwh_dim_calendario.fecha.día"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.me"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.día"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "me_have_días"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.día"
+			            },
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_have_me"
+			        },
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "dwh_dim_calendario.fecha.día"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dwh_dim_calendario.fecha.me"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "días_are_in_me"
+			        }
+			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
+			    }
+			  }
+			}
+		contentType: json
+

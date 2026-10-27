@@ -1,0 +1,57 @@
+table 'dwh dim_trauma'
+	lineageTag: 745e92de-035c-4707-b21e-b4774a845a86
+
+	column key_tipotrauma
+		dataType: int64
+		formatString: 0
+		lineageTag: 8dcd6bfa-1e4b-4d71-abba-996ea3808d1e
+		summarizeBy: none
+		sourceColumn: key_tipotrauma
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_trauma
+		dataType: int64
+		formatString: 0
+		lineageTag: dbb5c0f3-9086-4ee8-9ec7-becf253b4263
+		summarizeBy: sum
+		sourceColumn: tipo_trauma
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_tipo_trauma
+		dataType: string
+		lineageTag: e85f9960-b192-409e-99b1-4ed1cf4bd0f6
+		summarizeBy: none
+		sourceColumn: descripcion_tipo_trauma
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_subtrauma
+		dataType: int64
+		formatString: 0
+		lineageTag: cf1eb28c-a869-4588-a62c-b638159029f1
+		summarizeBy: sum
+		sourceColumn: tipo_subtrauma
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_tipo_subtrauma
+		dataType: string
+		lineageTag: 763edd6b-8e8c-4a00-a578-1ed792088f41
+		summarizeBy: none
+		sourceColumn: descripcion_tipo_subtrauma
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dwh dim_trauma' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost", "bdw_trauma"),
+				    dwh_dim_trauma = Origen{[Schema="dwh",Item="dim_trauma"]}[Data]
+				in
+				    dwh_dim_trauma
+
+	annotation PBI_ResultType = Table
+

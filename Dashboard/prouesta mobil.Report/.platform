@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "prouesta mobil"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d3abf0eb-e6c1-4ef6-ab58-0899f88067fc"
+  }
+}

@@ -1,0 +1,97 @@
+table 'dwh dim_calendario'
+	lineageTag: 9290aa50-e502-45f1-8490-2e00c4485ff0
+
+	column id_fecha
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b9b10f8-dc66-4a95-9b87-e5c2725b237d
+		summarizeBy: none
+		sourceColumn: id_fecha
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 621a78d2-dbe2-4c80-ad72-0dfe0cdfeda5
+		summarizeBy: none
+		sourceColumn: fecha
+
+		variation Variación
+			isDefault
+			relationship: b9c1040a-a249-413b-af3e-b5eaeb9483b0
+			defaultHierarchy: LocalDateTable_b43074d1-9acf-45ed-aaac-6e3121662cee.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column dia_semana
+		dataType: string
+		lineageTag: 2121eb75-1627-493c-a05d-26b3818535b0
+		summarizeBy: none
+		sourceColumn: dia_semana
+		sortByColumn: DayOfWeekNumber
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column es_festivo
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1e227532-e183-41cf-98ce-1bb4f70c66fc
+		summarizeBy: none
+		sourceColumn: es_festivo
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeekNumber = ```
+			WEEKDAY('dwh dim_calendario'[fecha], 2)
+			
+			
+			
+			```
+		formatString: 0
+		lineageTag: c90c5885-bf64-4d0b-a0c0-7ea6ef1bb3dd
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio = YEAR('dwh dim_calendario'[fecha])
+		formatString: 0
+		lineageTag: b93b4ebd-ce47-410b-b57d-8639bc140d6a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Diames = DAY('dwh dim_calendario'[fecha])
+		formatString: 0
+		lineageTag: 1128b26f-0456-4716-823e-85244115e2b1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes = FORMAT('dwh dim_calendario'[fecha], "MM") & " - " & FORMAT('dwh dim_calendario'[fecha], "mmm")
+		dataType: string
+		lineageTag: 75871e16-6e48-44ca-b9cf-c0eb08c1ac96
+
+	column Año-Mes = FORMAT('dwh dim_calendario'[fecha], "yyyy-MM")
+		dataType: string
+		lineageTag: 91be275c-e74e-4a2e-bd89-2a52b150dbf3
+
+	column Día = SWITCH('dwh dim_calendario'[dia_semana], "Monday", "1 Lunes", "Tuesday", "2 Martes", "Wednesday", "3 Miércoles", "Thursday", "4 Jueves", "Friday", "5 Viernes", "Saturday", "6 Sábado", "Sunday", "7 Domingo", 'dwh dim_calendario'[dia_semana])
+		dataType: string
+		lineageTag: 1bc76b10-3904-49c5-9959-44b388b1a23b
+
+	partition 'dwh dim_calendario' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost", "bdw_trauma"),
+				    dwh_dim_calendario = Origen{[Schema="dwh",Item="dim_calendario"]}[Data]
+				in
+				    dwh_dim_calendario
+
+	annotation PBI_ResultType = Table
+

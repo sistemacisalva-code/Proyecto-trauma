@@ -1,0 +1,55 @@
+table 'dwh dim_perfildem'
+	lineageTag: 7a665234-287b-4b78-835c-b417c865b293
+
+	column key_perfil_dem
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b0c418d-1993-48f1-87a2-8bd666e4a032
+		summarizeBy: none
+		sourceColumn: key_perfil_dem
+
+		annotation SummarizationSetBy = Automatic
+
+	column genero
+		dataType: string
+		lineageTag: 9fbcaff2-576b-4e11-9650-ea3c7798f732
+		summarizeBy: none
+		sourceColumn: genero
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado_civil
+		dataType: string
+		lineageTag: 3f9f64dd-1120-4cde-8b5a-ac6b0c493b9b
+		summarizeBy: none
+		sourceColumn: estado_civil
+
+		annotation SummarizationSetBy = Automatic
+
+	column ocupacion
+		dataType: string
+		lineageTag: 5e5883eb-107e-4b4e-a74d-03a868ea00e9
+		summarizeBy: none
+		sourceColumn: ocupacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column quinquenio
+		dataType: string
+		lineageTag: 39ac650e-04ff-4086-8b86-0f40b809b195
+		summarizeBy: none
+		sourceColumn: quinquenio
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dwh dim_perfildem' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost", "bdw_trauma"),
+				    dwh_dim_perfildem = Origen{[Schema="dwh",Item="dim_perfildem"]}[Data]
+				in
+				    dwh_dim_perfildem
+
+	annotation PBI_ResultType = Table
+

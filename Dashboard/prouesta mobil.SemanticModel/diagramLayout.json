@@ -1,0 +1,126 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 503.999989827474,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1368.4211832881829,
+            "y": 11.341967997204904
+          },
+          "nodeIndex": "dwh dim_calendario",
+          "nodeLineageTag": "9290aa50-e502-45f1-8490-2e00c4485ff0",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 986.044799010129,
+            "y": 272.20723193291781
+          },
+          "nodeIndex": "dwh dim_hechos",
+          "nodeLineageTag": "97b25356-1734-4af6-adff-4de10608f93f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 985.13539945262778,
+            "y": 651.12430385186008
+          },
+          "nodeIndex": "dwh dim_horario",
+          "nodeLineageTag": "1049ab61-d51a-46ca-8706-6e2de911a7a8",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1650.9816553585263,
+            "y": 333.63296793897371
+          },
+          "nodeIndex": "dwh dim_municipio",
+          "nodeLineageTag": "535a114f-58ce-434a-b140-f9c9b121a884",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 757.94279937110412,
+            "y": 0
+          },
+          "nodeIndex": "dwh dim_perfildem",
+          "nodeLineageTag": "7a665234-287b-4b78-835c-b417c865b293",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 296.0672797624174,
+            "y": 48.76770400326091
+          },
+          "nodeIndex": "dwh dim_subdimocupacion",
+          "nodeLineageTag": "25a4e94c-fb19-4b12-accb-6162db5d199f",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 464.75727179083424,
+            "y": 682.68561584999668
+          },
+          "nodeIndex": "dwh dim_subdimtrauma",
+          "nodeLineageTag": "ca17a0ff-9ffb-49f9-b191-6a6ee1370a59",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 471.24003188633287,
+            "y": 412.36300508091131
+          },
+          "nodeIndex": "dwh dim_trauma",
+          "nodeLineageTag": "745e92de-035c-4707-b21e-b4774a845a86",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 6
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 60,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

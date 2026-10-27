@@ -1,0 +1,40 @@
+table 'dwh dim_subdimtrauma'
+	lineageTag: ca17a0ff-9ffb-49f9-b191-6a6ee1370a59
+
+	column key_tiposubdimtrauma
+		dataType: int64
+		formatString: 0
+		lineageTag: 29abd011-099b-42f7-b472-09a30a8efb1b
+		summarizeBy: sum
+		sourceColumn: key_tiposubdimtrauma
+
+		annotation SummarizationSetBy = Automatic
+
+	column trauma_register_record_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 18918140-8680-4865-8d6f-3226b7efbc1f
+		summarizeBy: sum
+		sourceColumn: trauma_register_record_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_tipo_subtrauma
+		dataType: string
+		lineageTag: 4e295279-5d46-4ef0-968a-2292f961b038
+		summarizeBy: none
+		sourceColumn: descripcion_tipo_subtrauma
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dwh dim_subdimtrauma' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost", "bdw_trauma"),
+				    dwh_dim_subdimtrauma = Origen{[Schema="dwh",Item="dim_subdimtrauma"]}[Data]
+				in
+				    dwh_dim_subdimtrauma
+
+	annotation PBI_ResultType = Table
+

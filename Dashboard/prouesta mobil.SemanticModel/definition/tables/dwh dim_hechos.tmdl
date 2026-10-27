@@ -1,0 +1,361 @@
+table 'dwh dim_hechos'
+	lineageTag: 97b25356-1734-4af6-adff-4de10608f93f
+
+	measure PromedioTiempoUrgenciasH = ```
+			
+			VAR TotalTiempoEnMinutos = 
+			    SUM('dwh dim_hechos'[tiempo_en_sala_de_emergencias_horas])  +
+			    SUM('dwh dim_hechos'[tiempo_en_sala_de_emergencias_minutos]) / 60
+			
+			VAR TotalRegistros = DISTINCTCOUNT('dwh dim_hechos'[trauma_register_record_id])
+			
+			RETURN 
+			IF(TotalRegistros > 0, TotalTiempoEnMinutos / TotalRegistros, BLANK())
+			
+			```
+		formatString: #,0.00
+		lineageTag: a9cfc56b-d2c0-4627-a65f-3790eadb0d05
+
+	measure PromedioHorasEstancia = ```
+			
+			VAR DiferenciaTotalHoras = 
+			    AVERAGEX(
+			        'dwh dim_hechos',
+			        VAR LlegadaFecha = 
+			            LOOKUPVALUE('dwh dim_calendario'[fecha], 'dwh dim_calendario'[id_fecha], 'dwh dim_hechos'[fecha_de_llegada_del_paciente])
+			        VAR LlegadaHora = 
+			            LOOKUPVALUE('dwh dim_horario'[hora_larga], 'dwh dim_horario'[id_horario], 'dwh dim_hechos'[hora_de_llegada_del_paciente])
+			        VAR AltaFecha = 
+			            LOOKUPVALUE('dwh dim_calendario'[fecha], 'dwh dim_calendario'[id_fecha], 'dwh dim_hechos'[fecha_de_alta])
+			        VAR AltaHora = 
+			            LOOKUPVALUE('dwh dim_horario'[hora_larga], 'dwh dim_horario'[id_horario], 'dwh dim_hechos'[hora_de_alta])
+			        
+			        VAR LlegadaDateTime = LlegadaFecha + LlegadaHora
+			        VAR AltaDateTime = AltaFecha + AltaHora
+			
+			        RETURN DATEDIFF(LlegadaDateTime, AltaDateTime, HOUR)
+			    )
+			
+			VAR TotalRegistros = DISTINCTCOUNT('dwh dim_hechos'[trauma_register_record_id])
+			
+			RETURN 
+			IF(TotalRegistros > 0, DiferenciaTotalHoras, BLANK())
+			
+			
+			
+			```
+		lineageTag: 7ea3fed9-8124-47ab-8009-ce62e61097fc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure PromedioTiempoMedico = ```
+			
+			VAR DiferenciaTotalHoras = 
+			    AVERAGEX(
+			        'dwh dim_hechos',
+			        VAR LlegadaFecha = 
+			            LOOKUPVALUE('dwh dim_calendario'[fecha], 'dwh dim_calendario'[id_fecha], 'dwh dim_hechos'[fecha_de_llegada_del_medico])
+			        VAR LlegadaHora = 
+			            LOOKUPVALUE('dwh dim_horario'[hora_larga], 'dwh dim_horario'[id_horario], 'dwh dim_hechos'[hora_de_llegada_del_medico])
+			        VAR AltaFecha = 
+			            LOOKUPVALUE('dwh dim_calendario'[fecha], 'dwh dim_calendario'[id_fecha], 'dwh dim_hechos'[fecha_de_la_disposicion])
+			        VAR AltaHora = 
+			            LOOKUPVALUE('dwh dim_horario'[hora_larga], 'dwh dim_horario'[id_horario], 'dwh dim_hechos'[hora_de_la_disposicion])
+			        
+			        VAR LlegadaDateTime = LlegadaFecha + LlegadaHora
+			        VAR AltaDateTime = AltaFecha + AltaHora
+			
+			        RETURN DATEDIFF(LlegadaDateTime, AltaDateTime, HOUR)
+			    )
+			
+			VAR TotalRegistros = DISTINCTCOUNT('dwh dim_hechos'[trauma_register_record_id])
+			
+			RETURN 
+			IF(TotalRegistros > 0, DiferenciaTotalHoras, BLANK())
+			```
+		lineageTag: c73a9968-f82c-4234-84e1-090ff5211d94
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% del Total de Casos' = ```
+			
+			VAR CasosVisibles = DISTINCTCOUNT('dwh dim_hechos'[trauma_register_record_id])
+			VAR CasosTotalesContexto = 
+			    CALCULATE(
+			        DISTINCTCOUNT('dwh dim_hechos'[trauma_register_record_id]),
+			        REMOVEFILTERS('dwh dim_hechos')
+			    )
+			RETURN
+			DIVIDE(CasosVisibles, CasosTotalesContexto)
+			
+			
+			
+			
+			
+			```
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 0667fc7d-b293-4566-8969-6d521743dcd7
+
+	measure Casos = COUNTROWS('dwh dim_hechos')
+		formatString: #,0
+		displayFolder: Dashboard
+		lineageTag: dbd847bd-977d-443e-bfff-3adba2551c0c
+
+	measure '% Casos (selección)' = DIVIDE([Casos], CALCULATE([Casos], ALLSELECTED()))
+		formatString: 0.0 %
+		displayFolder: Dashboard
+		lineageTag: dab51652-952e-465a-8ce7-9edd26f3af15
+
+	measure '% Hombres' =
+			DIVIDE(
+			    CALCULATE([Casos], 'dwh dim_perfildem'[genero] = "Masculino"),
+			    CALCULATE([Casos], 'dwh dim_perfildem'[genero] IN {"Masculino", "Femenino"})
+			)
+		formatString: 0.0 %
+		displayFolder: Dashboard
+		lineageTag: d282d5bb-2e7e-413a-b5fa-8f6d5b714464
+
+	measure 'Mediana horas en urgencias' =
+			MEDIANX(
+			    FILTER('dwh dim_hechos', NOT ISBLANK('dwh dim_hechos'[tiempo_en_sala_de_emergencias_horas]) && 'dwh dim_hechos'[tiempo_en_sala_de_emergencias_horas] >= 0),
+			    'dwh dim_hechos'[tiempo_en_sala_de_emergencias_horas] + 'dwh dim_hechos'[tiempo_en_sala_de_emergencias_minutos] / 60
+			)
+		formatString: #,0.0
+		displayFolder: Dashboard
+		lineageTag: 4fa726d6-67e1-41af-ab6f-177caaddcd2c
+
+	/// Minutos entre llegada del paciente y llegada del médico. Excluye negativos y > 3 días.
+	measure 'Promedio min hasta el médico' =
+			AVERAGEX(
+			    FILTER(
+			        ADDCOLUMNS('dwh dim_hechos', "@min",
+			            IF(NOT ISBLANK('dwh dim_hechos'[fecha_de_llegada_del_medico]) && NOT ISBLANK('dwh dim_hechos'[hora_de_llegada_del_medico]),
+			                ('dwh dim_hechos'[fecha_de_llegada_del_medico] - 'dwh dim_hechos'[fecha_de_llegada_del_paciente]) * 1440
+			                + 'dwh dim_hechos'[hora_de_llegada_del_medico] - 'dwh dim_hechos'[hora_de_llegada_del_paciente])),
+			        NOT ISBLANK([@min]) && [@min] >= 0 && [@min] <= 4320),
+			    [@min]
+			)
+		formatString: #,0
+		displayFolder: Dashboard
+		lineageTag: 0ea2ba5f-94ba-4ca7-8b18-9966f776ccc3
+
+	/// Casos donde la hora de llegada del médico es igual a la del paciente.
+	measure '% atendidos sin espera' =
+			VAR t = ADDCOLUMNS(
+			    FILTER('dwh dim_hechos', NOT ISBLANK('dwh dim_hechos'[fecha_de_llegada_del_medico]) && NOT ISBLANK('dwh dim_hechos'[hora_de_llegada_del_medico])),
+			    "@min", ('dwh dim_hechos'[fecha_de_llegada_del_medico] - 'dwh dim_hechos'[fecha_de_llegada_del_paciente]) * 1440
+			        + 'dwh dim_hechos'[hora_de_llegada_del_medico] - 'dwh dim_hechos'[hora_de_llegada_del_paciente])
+			RETURN DIVIDE(COUNTROWS(FILTER(t, [@min] = 0)), COUNTROWS(FILTER(t, [@min] >= 0)))
+		formatString: 0.0 %
+		displayFolder: Dashboard
+		lineageTag: 68893206-5b83-4bf2-9ce4-a1bff90d39a7
+
+	/// Días entre llegada del paciente y alta. Excluye negativos.
+	measure 'Mediana días hasta el alta' =
+			MEDIANX(
+			    FILTER(
+			        ADDCOLUMNS('dwh dim_hechos', "@d",
+			            IF(NOT ISBLANK('dwh dim_hechos'[fecha_de_alta]) && NOT ISBLANK('dwh dim_hechos'[hora_de_alta]),
+			                ('dwh dim_hechos'[fecha_de_alta] - 'dwh dim_hechos'[fecha_de_llegada_del_paciente])
+			                + ('dwh dim_hechos'[hora_de_alta] - 'dwh dim_hechos'[hora_de_llegada_del_paciente]) / 1440)),
+			        NOT ISBLANK([@d]) && [@d] >= 0 && [@d] <= 365),
+			    [@d]
+			)
+		formatString: #,0.0
+		displayFolder: Dashboard
+		lineageTag: 156ba4a2-dd5a-40d3-b0bd-ca82c46f1f44
+
+	/// Muerte prevenible = Si o Potencialmente.
+	measure 'Muertes prevenibles' = CALCULATE([Casos], 'dwh dim_hechos'[muerte_prevenible] IN {"Si", "Potencialmente"})
+		formatString: #,0
+		displayFolder: Dashboard
+		lineageTag: 130eeaa2-f9fe-4132-8cef-78ff7365f9c6
+
+	measure 'Casos evaluados muerte prevenible' = CALCULATE([Casos], 'dwh dim_hechos'[muerte_prevenible] IN {"Si", "Potencialmente", "No", "Se desconoce"})
+		formatString: #,0
+		displayFolder: Dashboard
+		lineageTag: da18610a-2cef-40f4-b6e4-f895a895872d
+
+	measure '% muerte prevenible' = DIVIDE([Muertes prevenibles], [Casos evaluados muerte prevenible])
+		formatString: 0.0 %
+		displayFolder: Dashboard
+		lineageTag: a655284b-5f3c-4410-886d-450d6680d798
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: f3b0790c-3536-47ed-ba8f-335ab8e60b03
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column trauma_register_record_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 93158b4b-2c76-4091-990d-452470a9ba04
+		summarizeBy: sum
+		sourceColumn: trauma_register_record_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_de_llegada_del_paciente
+		dataType: int64
+		formatString: 0
+		lineageTag: 16821df3-8d57-455b-88d4-ffe820ef4a2c
+		summarizeBy: none
+		sourceColumn: fecha_de_llegada_del_paciente
+
+		annotation SummarizationSetBy = Automatic
+
+	column hora_de_llegada_del_paciente
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dc4d34d-7fdf-4c24-8ded-a84ba1e187a2
+		summarizeBy: none
+		sourceColumn: hora_de_llegada_del_paciente
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_de_llegada_del_medico
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f688783-1265-4669-b0d8-d26e69abb0ab
+		summarizeBy: sum
+		sourceColumn: fecha_de_llegada_del_medico
+
+		annotation SummarizationSetBy = Automatic
+
+	column hora_de_llegada_del_medico
+		dataType: int64
+		formatString: 0
+		lineageTag: 9319a846-5601-4092-b6b9-07ca265dbc21
+		summarizeBy: sum
+		sourceColumn: hora_de_llegada_del_medico
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_de_la_disposicion
+		dataType: int64
+		formatString: 0
+		lineageTag: cf3b83d9-9dda-471d-8612-0199877e5e23
+		summarizeBy: sum
+		sourceColumn: fecha_de_la_disposicion
+
+		annotation SummarizationSetBy = Automatic
+
+	column hora_de_la_disposicion
+		dataType: int64
+		formatString: 0
+		lineageTag: 740aa62a-31ab-4fca-aa27-8cb6260e3840
+		summarizeBy: sum
+		sourceColumn: hora_de_la_disposicion
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_de_alta
+		dataType: int64
+		formatString: 0
+		lineageTag: 52bc18bd-7b54-465f-87d8-38b8ad0cd190
+		summarizeBy: sum
+		sourceColumn: fecha_de_alta
+
+		annotation SummarizationSetBy = Automatic
+
+	column hora_de_alta
+		dataType: int64
+		formatString: 0
+		lineageTag: 1abb02d2-e65e-4911-88fd-8d103fe33dda
+		summarizeBy: sum
+		sourceColumn: hora_de_alta
+
+		annotation SummarizationSetBy = Automatic
+
+	column municipio
+		dataType: int64
+		formatString: 0
+		lineageTag: 41922300-14f0-4521-b182-cc8bd921e97d
+		summarizeBy: none
+		sourceColumn: municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column key_perfil_dem
+		dataType: int64
+		formatString: 0
+		lineageTag: dbbb8ee0-32ab-4ecf-b012-fc28ed0e5724
+		summarizeBy: none
+		sourceColumn: key_perfil_dem
+
+		annotation SummarizationSetBy = Automatic
+
+	column key_tipotrauma
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d2a1e92-f2ed-4a9d-a905-4941ab454e00
+		summarizeBy: none
+		sourceColumn: key_tipotrauma
+
+		annotation SummarizationSetBy = Automatic
+
+	column tiempo_en_sala_de_emergencias_horas
+		dataType: int64
+		formatString: 0
+		lineageTag: 73761902-e125-4953-8f54-79a927fd00cd
+		summarizeBy: sum
+		sourceColumn: tiempo_en_sala_de_emergencias_horas
+
+		annotation SummarizationSetBy = Automatic
+
+	column tiempo_en_sala_de_emergencias_minutos
+		dataType: int64
+		formatString: 0
+		lineageTag: f131d8fa-faf0-4a3c-b944-ee6b843f9173
+		summarizeBy: sum
+		sourceColumn: tiempo_en_sala_de_emergencias_minutos
+
+		annotation SummarizationSetBy = Automatic
+
+	column muerte_prevenible
+		dataType: string
+		lineageTag: 8fd01473-9b69-41df-82c0-e285e817c5eb
+		summarizeBy: none
+		sourceColumn: muerte_prevenible
+
+		annotation SummarizationSetBy = Automatic
+
+	column muerte_prevenible_del_hospitalizacion
+		dataType: string
+		lineageTag: 2a890ac7-e9b4-4b34-b831-abfcae2fac2b
+		summarizeBy: none
+		sourceColumn: muerte_prevenible_del_hospitalizacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_del_diagnostico
+		dataType: string
+		lineageTag: ffb30719-95f8-42e7-b307-1c4854318aa7
+		summarizeBy: none
+		sourceColumn: descripcion_del_diagnostico
+
+		annotation SummarizationSetBy = Automatic
+
+	column motivo_de_consulta
+		dataType: string
+		lineageTag: 7a729029-727c-4be6-a8bd-9643eaa632cf
+		summarizeBy: none
+		sourceColumn: motivo_de_consulta
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dwh dim_hechos' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost", "bdw_trauma"),
+				    dwh_dim_hechos = Origen{[Schema="dwh",Item="dim_hechos"]}[Data]
+				in
+				    dwh_dim_hechos
+
+	annotation PBI_ResultType = Table
+

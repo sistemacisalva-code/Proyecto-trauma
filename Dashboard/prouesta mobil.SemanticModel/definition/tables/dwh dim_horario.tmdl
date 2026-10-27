@@ -1,0 +1,64 @@
+table 'dwh dim_horario'
+	lineageTag: 1049ab61-d51a-46ca-8706-6e2de911a7a8
+
+	column id_horario
+		dataType: int64
+		formatString: 0
+		lineageTag: 97be5320-7870-412d-8aff-d34f11e2ae29
+		summarizeBy: none
+		sourceColumn: id_horario
+
+		annotation SummarizationSetBy = Automatic
+
+	column hora_larga
+		dataType: dateTime
+		formatString: Long Time
+		lineageTag: 91209e0b-94a4-4753-b7ff-e31b07dacebe
+		summarizeBy: none
+		sourceColumn: hora_larga
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column hora
+		dataType: int64
+		formatString: 0
+		lineageTag: 0de7610d-cbba-41dc-b974-2ed0ef5f8d3c
+		summarizeBy: none
+		sourceColumn: hora
+
+		annotation SummarizationSetBy = Automatic
+
+	column minuto
+		dataType: int64
+		formatString: 0
+		lineageTag: 3768965b-21c6-4094-ac7c-bee29eef266e
+		summarizeBy: none
+		sourceColumn: minuto
+
+		annotation SummarizationSetBy = Automatic
+
+	column intervalo
+		dataType: string
+		lineageTag: a538cda4-b296-4677-af84-eb988684006a
+		summarizeBy: none
+		sourceColumn: intervalo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Franja horaria' = SWITCH(TRUE(), 'dwh dim_horario'[hora] < 6, "1 Madrugada (0-5 h)", 'dwh dim_horario'[hora] < 12, "2 Mañana (6-11 h)", 'dwh dim_horario'[hora] < 18, "3 Tarde (12-17 h)", "4 Noche (18-23 h)")
+		dataType: string
+		lineageTag: 8ec4ce1c-6e3a-4dbd-851b-9d8f2c5cf8f7
+
+	partition 'dwh dim_horario' = m
+		mode: import
+		source =
+				let
+				    Origen = PostgreSQL.Database("localhost", "bdw_trauma"),
+				    dwh_dim_horario = Origen{[Schema="dwh",Item="dim_horario"]}[Data]
+				in
+				    dwh_dim_horario
+
+	annotation PBI_ResultType = Table
+

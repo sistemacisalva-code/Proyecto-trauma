@@ -1,0 +1,27 @@
+model Model
+	culture: es-MX
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-CO
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["dwh dim_calendario","dwh dim_horario","dwh dim_hechos","dwh dim_municipio","dwh dim_perfildem","dwh dim_subdimocupacion","dwh dim_subdimtrauma","dwh dim_trauma"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["MCP-PBIModeling","DevMode"]
+
+ref table 'dwh dim_calendario'
+ref table DateTableTemplate_38ad4c40-262d-48d1-846a-4deadaad7f92
+ref table LocalDateTable_b43074d1-9acf-45ed-aaac-6e3121662cee
+ref table 'dwh dim_horario'
+ref table 'dwh dim_hechos'
+ref table 'dwh dim_municipio'
+ref table 'dwh dim_perfildem'
+ref table 'dwh dim_subdimocupacion'
+ref table 'dwh dim_subdimtrauma'
+ref table 'dwh dim_trauma'
+
+ref cultureInfo es-MX
+
