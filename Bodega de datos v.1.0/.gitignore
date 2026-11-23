@@ -1,14 +1,6 @@
-mapa_proyecto.md
-docs/interno/
-docs/sustentacion/
 .env
 venv
 data/
-AGENTS.md
-CLAUDE.md
-GEMINI.md
-.claudeignore
-.claude/
 scripts/
 # Python cache / bytecode
 __pycache__/
@@ -26,8 +18,6 @@ informe_pruebas.xml
 .coverage
 htmlcov/
 
-
-demostracion/
 # Base de diagnóstico consolidada
 diagnostico_consolidado/
 
