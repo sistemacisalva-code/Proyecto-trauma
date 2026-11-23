@@ -1,0 +1,589 @@
+# Estandarizacion de los valores de ciudad / municipio del Excel historico (registro_trauma).
+# Cada entrada agrupa las variantes de escritura observadas bajo un nombre oficial (DIVIPOLA/DANE, con tildes).
+# Las variantes se escriben ya normalizadas: minusculas, sin tildes, sin signos y con un solo espacio entre palabras
+# (la comparacion aplica esa misma normalizacion al valor del Excel, asi que mayusculas, tildes y espacios sobrantes
+# no necesitan listarse).
+#
+# tipo:      municipio | departamento | sin_informacion
+# confianza: alta (omitida) | media (probable) | baja (adivinanza, requiere confirmar)
+# Las entradas con confianza media o baja salen marcadas en la salida para que se revisen antes de cargar.
+#
+# BORRADOR elaborado solo con nombres (no con datos de pacientes). Revisar las entradas con `nota`.
+
+# ---------------------------------------------------------------- Valle del Cauca
+municipios:
+  - municipio: Cali
+    departamento: Valle del Cauca
+    variantes: [cali, santiago de cali]
+  - municipio: Cali
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Error de digitacion de "Cali" (letras vecinas o faltantes)
+    variantes: [cail, cai, cal, cal8, csli, calu, calii, caii, vali, ali, calli, cañi, cali altos los chorros,
+                desepaz cali, cali poblado campestre, alto aguacatal, la floresta]
+  - municipio: Cali
+    departamento: Valle del Cauca
+    confianza: baja
+    nota: Una sola letra; se asume Cali por ser el hospital de la atencion. Confirmar
+    variantes: [c]
+  - municipio: Cali
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Corregimiento o barrio de Cali
+    variantes: [hormiguero, felidia, pance, pichinde, villa carmelo, corregimiento villa carme, montebello, carmelo]
+  - municipio: Palmira
+    departamento: Valle del Cauca
+    variantes: [palmira]
+  - municipio: Dagua
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Lobo Guerrero es corregimiento de Dagua
+    variantes: [lobo guerrero]
+  - municipio: Ortega
+    departamento: Tolima
+    confianza: baja
+    nota: Municipio de Tolima; confirmar
+    variantes: [ortega]
+  - municipio: Palmira
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Error de digitacion o corregimiento de Palmira
+    variantes: [palmra, palimira, rozo]
+  - municipio: Dagua
+    departamento: Valle del Cauca
+    variantes: [dagua, dagiua]
+  - municipio: Dagua
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Corregimiento de Dagua
+    variantes: [queremal, cremal, km 30, miravalle]
+  - municipio: Candelaria
+    departamento: Valle del Cauca
+    variantes: [candelaria]
+  - municipio: Candelaria
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Error de digitacion o corregimiento de Candelaria
+    variantes: [cndelaria, villa gorgona, villagorgona]
+  - municipio: Jamundí
+    departamento: Valle del Cauca
+    variantes: [jamundi, jmundi, jaminidi, jamindi, jjamundi, corregimiento ampudia jamundi]
+  - municipio: Yumbo
+    departamento: Valle del Cauca
+    variantes: [yumbo, ymbo, yubo, jumbo]
+  - municipio: Florida
+    departamento: Valle del Cauca
+    variantes: [florida, la florida]
+  - municipio: Pradera
+    departamento: Valle del Cauca
+    variantes: [pradera, predera, municipio de pradera]
+  - municipio: El Cerrito
+    departamento: Valle del Cauca
+    variantes: [el cerrito, cerrito, cerroto]
+  - municipio: Roldanillo
+    departamento: Valle del Cauca
+    variantes: [roldanillo]
+  - municipio: Buenaventura
+    departamento: Valle del Cauca
+    variantes: [buenaventura, benaventura, bunaventura, bbuenaventgura, buentaventura, buena aventura, buenventura,
+                juanchaco buenaventura]
+  - municipio: Guadalajara de Buga
+    departamento: Valle del Cauca
+    variantes: [buga, guadalajara de buga, buga la grande]
+  - municipio: Guadalajara de Buga
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Dos lugares en un solo valor; se toma el primero (Buga). San Pedro es otro municipio del Valle
+    variantes: [buga san pedro]
+  - municipio: Restrepo
+    departamento: Valle del Cauca
+    variantes: [restrepo, resterepo]
+  - municipio: Calima
+    departamento: Valle del Cauca
+    nota: Calima El Darien
+    variantes: [calima, calima darien, darien calima, darien]
+  - municipio: El Águila
+    departamento: Valle del Cauca
+    variantes: [el aguila, aguila]
+  - municipio: Caicedonia
+    departamento: Valle del Cauca
+    variantes: [caicedonia, caicedoia, caiconia]
+  - municipio: Caicedonia
+    departamento: Valle del Cauca
+    confianza: baja
+    nota: Posible Caicedonia truncado; existe tambien Caicedo (corregimiento). Confirmar
+    variantes: [caicedo]
+  - municipio: Guacarí
+    departamento: Valle del Cauca
+    variantes: [guacari]
+  - municipio: Tuluá
+    departamento: Valle del Cauca
+    variantes: [tulua, tulula]
+  - municipio: Cartago
+    departamento: Valle del Cauca
+    variantes: [cartago, cartago bellavista]
+  - municipio: La Cumbre
+    departamento: Valle del Cauca
+    variantes: [la cumbre, cumbre, la cumbre valle]
+  - municipio: Ginebra
+    departamento: Valle del Cauca
+    variantes: [ginebra, ginerbra]
+  - municipio: Vijes
+    departamento: Valle del Cauca
+    variantes: [vijes, vijez]
+  - municipio: Obando
+    departamento: Valle del Cauca
+    variantes: [obando]
+  - municipio: Bugalagrande
+    departamento: Valle del Cauca
+    variantes: [bugalagrande, bugalagrandre]
+  - municipio: Zarzal
+    departamento: Valle del Cauca
+    variantes: [zarzal, sarsal]
+  - municipio: El Dovio
+    departamento: Valle del Cauca
+    variantes: [el dovio, el dobio, dovio]
+  - municipio: Toro
+    departamento: Valle del Cauca
+    variantes: [toro]
+  - municipio: Bolívar
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Hay Bolivar en Valle, Cauca y otros departamentos; se asume Valle por cercania. Confirmar
+    variantes: [bolivar]
+  - municipio: Alcalá
+    departamento: Valle del Cauca
+    variantes: [alcala]
+  - municipio: Ansermanuevo
+    departamento: Valle del Cauca
+    variantes: [ansermanuevo, arsemanuevo]
+  - municipio: Anserma
+    departamento: Caldas
+    nota: Anserma (Caldas); no confundir con Ansermanuevo (Valle)
+    variantes: [anserma]
+  - municipio: Andalucía
+    departamento: Valle del Cauca
+    variantes: [andalucia]
+  - municipio: Sevilla
+    departamento: Valle del Cauca
+    variantes: [sevilla, sevila, sevlla]
+  - municipio: Trujillo
+    departamento: Valle del Cauca
+    variantes: [trujillo]
+  - municipio: Yotoco
+    departamento: Valle del Cauca
+    variantes: [yotoco]
+  - municipio: Riofrío
+    departamento: Valle del Cauca
+    variantes: [rio frio, riofrio]
+  - municipio: La Unión
+    departamento: Valle del Cauca
+    variantes: [la union, union valle]
+  - municipio: La Unión
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Sin articulo; existen La Union en Valle y Union en otros departamentos
+    variantes: [union]
+  - municipio: La Victoria
+    departamento: Valle del Cauca
+    variantes: [la victoria]
+  - municipio: El Cairo
+    departamento: Valle del Cauca
+    variantes: [el cairo, ciaro]
+  - municipio: Versalles
+    departamento: Valle del Cauca
+    variantes: [versalles, varsalles]
+  - municipio: Ulloa
+    departamento: Valle del Cauca
+    variantes: [ulloa]
+  - municipio: Argelia
+    departamento: Valle del Cauca
+    confianza: media
+    nota: Hay Argelia en Valle, Cauca y Antioquia; se asume Valle. Confirmar
+    variantes: [argelia]
+  - municipio: San Pedro
+    departamento: Valle del Cauca
+    confianza: baja
+    nota: Hay San Pedro en Valle, Antioquia, Sucre y otros; se asume Valle. Confirmar
+    variantes: [san pedro]
+
+# ---------------------------------------------------------------- Cauca
+  - municipio: Popayán
+    departamento: Cauca
+    variantes: [popayan]
+  - municipio: Santander de Quilichao
+    departamento: Cauca
+    variantes: [santander de quilichao, santander quilichao, santandr de quilichao, santader de quilichao,
+                santrander de quilichao, santanderde quilichao, santarnder de quilichao, santander quilicha,
+                stder de quilichao]
+  - municipio: Santander de Quilichao
+    departamento: Cauca
+    confianza: media
+    nota: Corregimiento de Santander de Quilichao
+    variantes: [mondomo]
+  - municipio: Suárez
+    departamento: Cauca
+    variantes: [suarez, suares]
+  - municipio: Suárez
+    departamento: Cauca
+    confianza: baja
+    nota: Timba es corregimiento de Suarez (Cauca) segun el nombre, pero hay otra vereda con ese nombre. Confirmar
+    variantes: [timba]
+  - municipio: Guachené
+    departamento: Cauca
+    variantes: [guachene]
+  - municipio: Puerto Tejada
+    departamento: Cauca
+    variantes: [puerto tejada, pto tejada, puero tejada]
+  - municipio: Villa Rica
+    departamento: Cauca
+    variantes: [villa rica, villarica, villarrica]
+  - municipio: Miranda
+    departamento: Cauca
+    variantes: [miranda]
+  - municipio: Caloto
+    departamento: Cauca
+    variantes: [caloto]
+  - municipio: Caloto
+    departamento: Cauca
+    confianza: baja
+    nota: Puede ser Caloto truncado o Cali con una letra faltante. Confirmar
+    variantes: [calo]
+  - municipio: Toribío
+    departamento: Cauca
+    variantes: [toribio]
+  - municipio: Cajibío
+    departamento: Cauca
+    variantes: [cajibio]
+  - municipio: Corinto
+    departamento: Cauca
+    variantes: [corinto]
+  - municipio: Jambaló
+    departamento: Cauca
+    variantes: [jambalo]
+  - municipio: Inzá
+    departamento: Cauca
+    variantes: [inza]
+  - municipio: Silvia
+    departamento: Cauca
+    variantes: [silvia]
+  - municipio: Piendamó
+    departamento: Cauca
+    variantes: [piendamo]
+  - municipio: Caldono
+    departamento: Cauca
+    variantes: [caldono]
+  - municipio: Almaguer
+    departamento: Cauca
+    variantes: [almaguer]
+  - municipio: Morales
+    departamento: Cauca
+    variantes: [morales]
+  - municipio: Totoró
+    departamento: Cauca
+    variantes: [totoro]
+  - municipio: López de Micay
+    departamento: Cauca
+    variantes: [lopez de micay, micay, lopez micay]
+  - municipio: Guapi
+    departamento: Cauca
+    variantes: [guapi]
+  - municipio: Timbiquí
+    departamento: Cauca
+    variantes: [timbiqui, timiqui]
+  - municipio: Buenos Aires
+    departamento: Cauca
+    variantes: [buenos aires, bienos aires, vereda palo blanco en buenos aires cauca]
+  - municipio: Balboa
+    departamento: Cauca
+    variantes: [balboa]
+  - municipio: Patía
+    departamento: Cauca
+    variantes: [patia, el bordo, patia el bordo]
+  - municipio: Timbío
+    departamento: Cauca
+    variantes: [timbio]
+  - municipio: Páez
+    departamento: Cauca
+    variantes: [paez]
+  - municipio: Padilla
+    departamento: Cauca
+    variantes: [padilla]
+  - municipio: Rosas
+    departamento: Cauca
+    variantes: [rosas]
+  - municipio: La Vega
+    departamento: Cauca
+    variantes: [la vega, vega]
+  - municipio: El Tambo
+    departamento: Cauca
+    confianza: media
+    nota: Hay El Tambo en Cauca y Nariño; se asume Cauca. Confirmar
+    variantes: [el tambo, tambo]
+  - municipio: Mercaderes
+    departamento: Cauca
+    variantes: [mercaderez, mercaderes]
+  - municipio: Magüí Payán
+    departamento: Nariño
+    variantes: [magui payan]
+
+# ---------------------------------------------------------------- Nariño
+  - municipio: San Juan de Pasto
+    departamento: Nariño
+    variantes: [pasto, san juan de pasto]
+  - municipio: Tumaco
+    departamento: Nariño
+    variantes: [tumaco]
+  - municipio: Buesaco
+    departamento: Nariño
+    variantes: [buesaco]
+  - municipio: Barbacoas
+    departamento: Nariño
+    variantes: [barbacoas]
+  - municipio: Olaya Herrera
+    departamento: Nariño
+    variantes: [olaya herrera]
+  - municipio: Ipiales
+    departamento: Nariño
+    variantes: [ipiales]
+  - municipio: Samaniego
+    departamento: Nariño
+    variantes: [samaniego]
+  - municipio: Policarpa
+    departamento: Nariño
+    variantes: [policarpa]
+  - municipio: Cuaspud
+    departamento: Nariño
+    variantes: [cuaspud]
+  - municipio: Santa Bárbara
+    departamento: Nariño
+    nota: Santa Barbara de Iscuande; Iscuande es el nombre del casco urbano
+    variantes: [santa barbara de iscuande, iscuade]
+  - municipio: El Charco
+    departamento: Nariño
+    variantes: [el charco, charco]
+  - municipio: La Tola
+    departamento: Nariño
+    variantes: [la tola]
+  - municipio: Guachucal
+    departamento: Nariño
+    variantes: [guachucan]
+  - municipio: Sandoná
+    departamento: Nariño
+    variantes: [sandona]
+
+# ---------------------------------------------------------------- Chocó
+  - municipio: Quibdó
+    departamento: Chocó
+    variantes: [quibdo]
+  - municipio: Istmina
+    departamento: Chocó
+    variantes: [ismina]
+  - municipio: Bajo Baudó
+    departamento: Chocó
+    variantes: [bajo baudo pizarro]
+  - municipio: Bahía Solano
+    departamento: Chocó
+    variantes: [bahia solano mutis]
+  - municipio: San José del Palmar
+    departamento: Chocó
+    variantes: [san jose del palmar, san jose de palmar]
+  - municipio: San José
+    departamento: Sin determinar
+    confianza: baja
+    nota: Hay muchos municipios llamados San Jose; no se puede resolver con el texto
+    variantes: [san jose]
+  - municipio: Sipí
+    departamento: Chocó
+    variantes: [sipi]
+
+# ---------------------------------------------------------------- otros departamentos
+  - municipio: Pereira
+    departamento: Risaralda
+    variantes: [pereira]
+  - municipio: Bogotá D.C.
+    departamento: "Bogotá, D.C."
+    variantes: [bogota, bogota dc, bogota d c, santa fe de bogota]
+  - municipio: Medellín
+    departamento: Antioquia
+    variantes: [medellin]
+  - municipio: Manizales
+    departamento: Caldas
+    variantes: [manizales]
+  - municipio: Armenia
+    departamento: Quindío
+    variantes: [armenia, amenia]
+  - municipio: Bucaramanga
+    departamento: Santander
+    variantes: [bucaramanga]
+  - municipio: Ibagué
+    departamento: Tolima
+    variantes: [ibague]
+  - municipio: Montería
+    departamento: Córdoba
+    variantes: [monteria]
+  - municipio: Santa Marta
+    departamento: Magdalena
+    variantes: [santa marta]
+  - municipio: Espinal
+    departamento: Tolima
+    variantes: [espinal]
+  - municipio: Yopal
+    departamento: Casanare
+    variantes: [yopal]
+  - municipio: Soacha
+    departamento: Cundinamarca
+    variantes: [soacha]
+  - municipio: Chocontá
+    departamento: Cundinamarca
+    variantes: [choconta]
+  - municipio: Quimbaya
+    departamento: Quindío
+    variantes: [quimbaya]
+  - municipio: Calarcá
+    departamento: Quindío
+    variantes: [calarca]
+  - municipio: Pijao
+    departamento: Quindío
+    variantes: [pijao]
+  - municipio: La Tebaida
+    departamento: Quindío
+    variantes: [la tebaida]
+  - municipio: Santa Rosa de Cabal
+    departamento: Risaralda
+    variantes: [santa rosa de cabal]
+  - municipio: Apía
+    departamento: Risaralda
+    variantes: [apia]
+  - municipio: Supía
+    departamento: Caldas
+    variantes: [supia]
+  - municipio: Aguadas
+    departamento: Caldas
+    variantes: [aguadas caldas]
+  - municipio: Líbano
+    departamento: Tolima
+    variantes: [libano]
+  - municipio: Anzoátegui
+    departamento: Tolima
+    variantes: [anzoategui]
+  - municipio: Rioblanco
+    departamento: Tolima
+    variantes: [rioblanco]
+  - municipio: Orito
+    departamento: Putumayo
+    variantes: [orito]
+  - municipio: Puerto Asís
+    departamento: Putumayo
+    variantes: [puert asis]
+  - municipio: Concordia
+    departamento: Antioquia
+    confianza: baja
+    nota: Hay Concordia en Antioquia y Magdalena. Confirmar
+    variantes: [concordia]
+  - municipio: Vista Hermosa
+    departamento: Sin determinar
+    confianza: baja
+    nota: Municipio del Meta, pero tambien nombre de barrios y veredas. Confirmar
+    variantes: [vista hermosa]
+
+  - {municipio: Aracataca, departamento: Magdalena, variantes: [aracataca]}
+  - {municipio: Dosquebradas, departamento: Risaralda, variantes: [dos quebradas, dosquebradas]}
+  - {municipio: Manzanares, departamento: Caldas, variantes: [manzanares]}
+  - {municipio: Pensilvania, departamento: Caldas, variantes: [pensilvania]}
+  - {municipio: Quinchía, departamento: Risaralda, variantes: [quinchia]}
+  - {municipio: Oporapa, departamento: Huila, variantes: [oporapa]}
+  - {municipio: Soledad, departamento: Atlántico, variantes: [soledad]}
+  - {municipio: Villavicencio, departamento: Meta, variantes: [villavicencio]}
+  - {municipio: La Cruz, departamento: Nariño, confianza: media,
+     nota: Municipio de Nariño; tambien es corregimiento de Pereira. Confirmar, variantes: [la cruz]}
+  - {municipio: Colón, departamento: Sin determinar, confianza: baja,
+     nota: Hay Colon en Nariño y Putumayo. Confirmar, variantes: [colon]}
+  - {municipio: San Pablo, departamento: Sin determinar, confianza: baja,
+     nota: Hay San Pablo en Nariño y Bolivar. Confirmar, variantes: [san pablo]}
+  - {municipio: San Sebastián, departamento: Sin determinar, confianza: baja,
+     nota: Hay San Sebastian en Cauca y Magdalena. Confirmar, variantes: [san sebastian]}
+
+  # --- agregados para ciudad_de_evento_de_la_lesion / condado_de_lesiones
+  - {municipio: Cali, departamento: Valle del Cauca, confianza: media, nota: Error de digitacion de Cali,
+     variantes: [c ali, calia, calio]}
+  - {municipio: Cali, departamento: Valle del Cauca, confianza: media, nota: Barrio de Cali,
+     variantes: [siloe, alfonso lopez, manuela beltran]}
+  - {municipio: Guadalajara de Buga, departamento: Valle del Cauca, confianza: media, nota: Error de digitacion, variantes: [bugfa]}
+  - {municipio: Dagua, departamento: Valle del Cauca, confianza: media, nota: Error de digitacion o corregimiento,
+     variantes: [cdagua, dagua el palmar]}
+  - {municipio: Cartago, departamento: Valle del Cauca, confianza: media, nota: Error de digitacion, variantes: [cratago]}
+  - {municipio: El Dovio, departamento: Valle del Cauca, confianza: media, nota: Error de digitacion, variantes: [duvio]}
+  - {municipio: Palmira, departamento: Valle del Cauca, confianza: media, nota: Error de digitacion o corregimiento de Palmira,
+     variantes: [pamira, palmria, amaime]}
+  - {municipio: Puerto Tejada, departamento: Cauca, confianza: media, nota: Error de digitacion, variantes: [puerto tejeda]}
+  - {municipio: Roldanillo, departamento: Valle del Cauca, confianza: media, nota: Error de digitacion, variantes: [roldalnillo]}
+  - {municipio: Vijes, departamento: Valle del Cauca, confianza: media, nota: Error de digitacion, variantes: [viges]}
+  - {municipio: Istmina, departamento: Chocó, confianza: media, nota: Error de digitacion, variantes: [itsmina]}
+  - {municipio: Inzá, departamento: Cauca, confianza: baja, nota: Posible Inza escrito Insa. Confirmar, variantes: [insa]}
+  - {municipio: Silvia, departamento: Cauca, confianza: baja, nota: Posible Silvia truncado. Confirmar, variantes: [silvi]}
+  - {municipio: Rosas, departamento: Cauca, confianza: media, nota: Corregimiento de Rosas, variantes: [corregimiento de rosas]}
+  - {municipio: Marmato, departamento: Caldas, variantes: [marmato]}
+  - {municipio: Pitalito, departamento: Huila, variantes: [pitalito]}
+
+# ---------------------------------------------------------------- sin municipio
+sin_municipio:
+  # Departamentos en lugar de municipio: no se puede inferir el municipio
+  departamentos:
+    - {valor: Cauca, variantes: [cauca]}
+    - {valor: Antioquia, variantes: [antioquia]}
+    - {valor: Huila, variantes: [huila]}
+    - {valor: Nariño, variantes: [narino]}
+    - {valor: Tolima, variantes: [tolima]}
+    - {valor: Risaralda, variantes: [risaralda]}
+    - {valor: Santander, variantes: [santander]}
+    - {valor: Chocó, variantes: [choco]}
+    - {valor: Caldas, variantes: [caldas]}
+    - {valor: Cundinamarca, variantes: [cundinamarca]}
+    - {valor: Valle del Cauca, variantes: [valle, valle del cauca, va]}
+  # Valores que declaran que no hay informacion
+  sin_informacion: [sd, no especificado, no esfecificado, sin informacion, "0", colombia]
+  # Valores que no son un lugar o que no se pueden identificar; requieren que el hospital o el usuario los confirme
+  no_identificables: [soltera, costa rica, camilo, tumba, barranco, mojica, la judea, arrayanes, gatica,
+                      villamercedes, la hormiga, cabuyal, san luis, san antonio, tenerife, corregimiento ricaute,
+                      pradera palmira, el carmen, vergel, vereda comedulce,
+                      1015, cisneros, pavas, el palo, el cortijo, el realito, san jose de tapage, barranco cauca,
+                      corregimiento la paz, corr el salado]
+
+# ---------------------------------------------------------------- departamentos
+# Catalogo de departamentos (nombre oficial DANE). Se usa para la columna `departamento` (antes provincia_estado).
+# Un valor fuera del catalogo (otro pais, estado extranjero, texto libre) queda vacio y se reporta como sin_clasificar.
+departamentos:
+  - {nombre: Amazonas, variantes: [amazonas]}
+  - {nombre: Antioquia, variantes: [antioquia]}
+  - {nombre: Arauca, variantes: [arauca]}
+  - {nombre: Atlántico, variantes: [atlantico]}
+  - {nombre: "Bogotá, D.C.", variantes: [bogota, bogota dc, bogota d c, bogota distrito capital, distrito capital, cundinamarca bogota]}
+  - {nombre: Bolívar, variantes: [bolivar]}
+  - {nombre: Boyacá, variantes: [boyaca]}
+  - {nombre: Caldas, variantes: [caldas]}
+  - {nombre: Caquetá, variantes: [caqueta]}
+  - {nombre: Casanare, variantes: [casanare]}
+  - {nombre: Cauca, variantes: [cauca]}
+  - {nombre: Cesar, variantes: [cesar]}
+  - {nombre: Chocó, variantes: [choco]}
+  - {nombre: Córdoba, variantes: [cordoba]}
+  - {nombre: Cundinamarca, variantes: [cundinamarca]}
+  - {nombre: Guainía, variantes: [guainia]}
+  - {nombre: Guaviare, variantes: [guaviare]}
+  - {nombre: Huila, variantes: [huila]}
+  - {nombre: La Guajira, variantes: [la guajira, guajira]}
+  - {nombre: Magdalena, variantes: [magdalena]}
+  - {nombre: Meta, variantes: [meta]}
+  - {nombre: Nariño, variantes: [narino]}
+  - {nombre: Norte de Santander, variantes: [norte de santander]}
+  - {nombre: Putumayo, variantes: [putumayo]}
+  - {nombre: Quindío, variantes: [quindio]}
+  - {nombre: Risaralda, variantes: [risaralda]}
+  - {nombre: "San Andrés, Providencia y Santa Catalina", variantes: [san andres, san andres y providencia, san andres providencia y santa catalina]}
+  - {nombre: Santander, variantes: [santander]}
+  - {nombre: Sucre, variantes: [sucre]}
+  - {nombre: Tolima, variantes: [tolima]}
+  - {nombre: Valle del Cauca, variantes: [valle del cauca, valle, valle del cauca]}
+  - {nombre: Vaupés, variantes: [vaupes]}
+  - {nombre: Vichada, variantes: [vichada]}

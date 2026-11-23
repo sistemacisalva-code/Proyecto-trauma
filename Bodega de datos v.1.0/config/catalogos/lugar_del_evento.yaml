@@ -1,0 +1,70 @@
+# Clasificacion del texto libre de lugar_del_evento (Excel historico) en las etiquetas de REDCap por palabras clave.
+# Lo usa etl/transform/common/lugar_del_evento.py. Sin datos de pacientes: solo palabras de contexto.
+#
+# - El texto se normaliza (minusculas, sin tildes ni signos) y se compara palabra por palabra, en singular
+#   ("clinicas" = "clinica"); una palabra clave con varias palabras ("centro de salud") debe aparecer seguida.
+# - El ORDEN de `reglas` es la prioridad: gana la primera regla que encuentra una palabra clave. Va primero lo especifico
+#   (hospital, escuela) y al final lo generico (domicilio, calles) y las abreviaturas.
+# - Un texto sin ninguna palabra clave queda en `etiqueta_sin_clasificar` y se descarta el texto (privacidad).
+# - Para ajustar: agregue palabras clave a la regla que corresponda o cambie el orden; el codigo no cambia.
+
+etiqueta_sin_clasificar: Lugar no especificado
+
+# Dominio de REDCap para lugar_del_evento (lista entregada por el usuario, 2026-10-21)
+etiquetas:
+  - Calles y avenidas
+  - Domicilio
+  - Lugar no especificado
+  - Mar, lago, río, embalse, pozo
+  - Áreas de servicio y de construcción
+  - Área de servicio médico
+  - Área administrativa publica
+  - Tierra abierta, playa, bosque, desierto
+  - Área comercial/servicio
+  - Haciendas
+  - Áreas atléticas y de deporte
+  - Escuela
+
+reglas:
+  - etiqueta: Área de servicio médico
+    palabras: [hospital, clinica, centro de salud, centro medico, puesto de salud, urgencias, consultorio, ips, eps, salud]
+
+  - etiqueta: Escuela
+    palabras: [escuela, colegio, universidad, instituto, liceo, jardin infantil, institucion educativa, sena, kinder]
+
+  - etiqueta: Área administrativa publica
+    palabras: [alcaldia, gobernacion, estacion de policia, cai, comando, batallon, cuartel, base militar, carcel, penitenciaria,
+               inpec, juzgado, fiscalia, registraduria, bomberos, ministerio, palacio de justicia]
+
+  - etiqueta: Áreas atléticas y de deporte
+    palabras: [cancha, estadio, coliseo, polideportivo, gimnasio, piscina, futbol, microfutbol, baloncesto, voleibol, tenis, patinodromo]
+
+  - etiqueta: Mar, lago, río, embalse, pozo
+    palabras: [rio, mar, lago, embalse, pozo, quebrada, laguna, represa, arroyo, charco, cascada, canal, acequia]
+
+  - etiqueta: Haciendas
+    palabras: [hacienda, finca, granja, vereda, rancho, parcela, corregimiento]
+
+  - etiqueta: Tierra abierta, playa, bosque, desierto
+    palabras: [playa, bosque, desierto, monte, potrero, campo, loma, montana, selva, sendero]
+
+  - etiqueta: Áreas de servicio y de construcción
+    palabras: [obra, construccion, fabrica, taller, mina, industria, industrial, planta, cantera, ingenio]
+
+  - etiqueta: Área comercial/servicio
+    palabras: [tienda, restaurante, bar, discoteca, centro comercial, supermercado, almacen, banco, hotel, mercado,
+               plaza de mercado, bodega, estanco, panaderia, gasolinera, estacion de servicio, aeropuerto, alfonso bonilla aragon, terminal,
+               cafeteria, taberna, local, negocio, drogueria, peluqueria, billar, casino, parqueadero, cine, oficina]
+
+  - etiqueta: Domicilio
+    palabras: [casa, apartamento, apto, vivienda, hogar, domicilio, residencia, conjunto, urbanizacion, edificio,
+               unidad residencial, habitacion, inquilinato, ciudadela, torre, manzana, mz, bloque]
+
+  - etiqueta: Calles y avenidas
+    palabras: [calle, carrera, avenida, diagonal, transversal, autopista, carretera, via, puente, glorieta, semaforo,
+               esquina, anden, ciclovia, troncal, circunvalar, peatonal]
+
+  # Abreviaturas: al final porque son ambiguas ("ca" puede ser calle, casa...); solo cuentan si nada mas especifico coincidio.
+  # Tras la limpieza de privacidad "calle 45" queda "calle" y "c 45" queda "c".
+  - etiqueta: Calles y avenidas
+    palabras: [c, cl, cll, ca, cr, cra, kr, kra, k, av, ave, ac, diag, dg, tv, trans]

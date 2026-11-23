@@ -1,0 +1,83 @@
+# Correcciones del texto libre de sustancias de abuso, compartidas por REDCap (motivo_de_consulta.otras_sustancias_de_abuso)
+# y el Excel historico (registro_trauma.otra_sustancia_de_abuso, renombrada a otras_sustancias_de_abuso).
+# Lo usa etl/transform/common/sustancias.py.
+#
+# Reglas del usuario (2026-10-20):
+#   - Solo se corrigen errores ortograficos evidentes de una palabra. No se unen sinonimos ni grafias validas
+#     (XACOL / SACOL y PSA se conservan tal cual).
+#   - Las negaciones NO se unifican: NIEGA, NINGUNA, NINGUNO y NO conservan su texto; solo se corrige su ortografia.
+#   - Homologaciones autorizadas: TUSI -> TUSSI, BENZODIACEPINA(S) -> BENZODIAZEPINA(S) y BASUCO -> BAZUCO.
+# Todo se escribe en MAYUSCULAS y sin tildes (el texto se compara ya normalizado; la Ñ se conserva).
+
+# palabra con error -> palabra correcta
+correcciones:
+  # "especificado" mal escrito
+  ESPECIFCIADO: ESPECIFICADO
+  ESPECIFCICADO: ESPECIFICADO
+  ESPEICIFICADO: ESPECIFICADO
+  EPSECIFICADO: ESPECIFICADO
+  ESOECIFICADO: ESPECIFICADO
+  ESPECIIFCADO: ESPECIFICADO
+  ESPECIDFICADO: ESPECIFICADO
+  ESPACIFICADO: ESPECIFICADO
+  ESPECIFICADON: ESPECIFICADO
+  ESPECIFICADOB: ESPECIFICADO
+  ESPECIFCADO: ESPECIFICADO
+  ESPECIFICAADO: ESPECIFICADO
+  ESPECIFIDO: ESPECIFICADO
+  ESFECIFICADO: ESPECIFICADO
+  EESPECIFICADO: ESPECIFICADO
+  # negaciones mal escritas (se corrige la palabra, no se unifica la negacion)
+  NIEG: NIEGA
+  NIEGUA: NIEGA
+  NEIGA: NIEGA
+  NINIGUNO: NINGUNO
+  NINIGUNA: NINGUNA
+  NIGUNO: NINGUNO
+  NUNGUNA: NINGUNA
+  NJINGUNA: NINGUNA
+  NIENGUNA: NINGUNA
+  NIGNUNO: NINGUNO
+  NINGNO: NINGUNO
+  # otras palabras
+  DECONOCE: DESCONOCE
+  DESOCNOCE: DESCONOCE
+  NFORMACION: INFORMACION
+  APARENTEMENET: APARENTEMENTE
+  ALCOHOLO: ALCOHOL
+  ACOHOL: ALCOHOL
+  ALCOCHOL: ALCOHOL
+  ALCHOL: ALCOHOL
+  OCACIONAL: OCASIONAL
+  OCACIONALES: OCASIONALES
+  # sustancias
+  MAIHUANA: MARIHUANA
+  MARIHUANNA: MARIHUANA
+  MARIHUNA: MARIHUANA
+  CANABIS: CANNABIS
+  CANABINOIDES: CANNABINOIDES
+  CIGARRILO: CIGARRILLO
+  CIGARILLOS: CIGARRILLOS
+  PERICA: PERICO
+  PERIDO: PERICO
+  POPER: POPPER
+  RIBOTRIL: RIVOTRIL
+  CLONOZEPAM: CLONAZEPAM
+  CLONAZEPA: CLONAZEPAM
+  CLONAZEPLAM: CLONAZEPAM
+  CLONAZEPAN: CLONAZEPAM
+  INHALAMTYES: INHALANTES
+  BASUCO: BAZUCO   # misma sustancia, dos grafias; se deja BAZUCO
+  TUSI: TUSSI      # misma sustancia, dos grafias; se deja TUSSI (decision del usuario)
+  BENZODIACEPINA: BENZODIAZEPINA     # dos grafias; se deja la de la RAE (decision del usuario)
+  BENZODIACEPINAS: BENZODIAZEPINAS
+
+# expresiones de varias palabras -> correccion
+frases:
+  NO E ESPECIFICADO: NO ESPECIFICADO
+  PSI COACTIVAS: PSICOACTIVAS
+
+# Valores completos que no son una sustancia de abuso (ya limpios): se invalidan (NA) y se cuentan.
+# LEÑA y EXPOSICION A BIOMASA se conservan por decision del usuario.
+fuera_de_dominio:
+  - HERIDA DE LA PARED POSTERIOR DEL TORAX

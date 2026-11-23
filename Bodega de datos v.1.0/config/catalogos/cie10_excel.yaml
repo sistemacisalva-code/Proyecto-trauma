@@ -1,0 +1,12 @@
+# Ajustes del texto CIE-10 del Excel historico antes de mapearlo a las opciones de REDCap (cie10_redcap.csv).
+# Lo usa etl/transform/common/cie10.py. Sin datos de pacientes: solo textos de diagnostico.
+
+# Errores ortograficos (palabra completa, sin distinguir mayusculas): se corrigen en el texto antes de comparar.
+# Si el texto corregido no tiene pareja, se conserva corregido.
+correcciones_texto:
+  Hipopotasmia: Hipopotasemia     # hoja 7 complicaciones (decision del usuario 2026-10-20)
+
+# Equivalencias revisadas a mano: texto del Excel -> linea completa de cie10_redcap.csv.
+# Se llenan desde la columna `decision` de scripts/analisis_excel/cie10_coincidencias_por_prefijo.csv (revision del
+# usuario de las coincidencias por prefijo). Los textos que no aparezcan aqui y no coincidan exacto quedan sin pareja.
+equivalencias: {}

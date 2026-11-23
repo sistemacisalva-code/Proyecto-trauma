@@ -1,0 +1,134 @@
+# Mapeo de columnas de la hoja ancha `registro_trauma` del Excel a sub-bloques de procesamiento.
+# BORRADOR para validar. Se construyo solo con nombres de columna (sin datos), usando como guia:
+#   1) los instrumentos de REDCap (docs/fuentes/nombres_columnas_redcap.md) cuando hay una columna equivalente
+#   2) el orden de las columnas en el Excel, que sigue las secciones del formulario
+#
+# Alcance: las columnas que tiene la hoja DESPUES de la seudonimizacion, la exclusion de columnas y la edad, es decir
+#   - documento_seudonimo e historia_seudonimo sustituyen a numero_de_identificacion y numero_de_historia_clinica
+#   - quinquenio_edad y quinquenio_orden sustituyen a edad y unidad_de_edad
+# La llave `traumaregisterrecordid` va en todos los bloques y no se lista aqui.
+#
+# Los bloques con nombre de instrumento de REDCap reutilizan sus reglas. Los marcados "SIN EQUIVALENTE" no existen
+# en REDCap y requieren definir su tratamiento y su destino en el modelo.
+registro_trauma:
+
+  informacion_demografica:
+    - documento_seudonimo
+    - historia_seudonimo
+    - hospital
+    - fecha_y_hora_de_llegada_del_paciente
+    - referido
+    - quinquenio_edad
+    - quinquenio_orden
+    - genero
+    - estado_civil
+    - nacionalidad
+    - ocupacion
+    - grupo_etnico
+    - otro_grupo_etnico
+    - paciente_asegurado
+    - tipo_de_seguro
+    - ciudad
+    - canton_municipio
+    - provincia_estado
+
+  motivo_de_consulta:
+    - motivo_de_consulta
+    - consumo_de_alcohol
+    - valor_de_alcoholemia
+    - unidad_de_alcohol
+    - otra_sustancia_de_abuso
+    - fecha_y_hora_del_evento
+    - ciudad_de_evento_de_la_lesion
+    - condado_de_lesiones
+    - estado_provincia_de_lesiones
+    - pais_de_lesiones
+    - codigo_postal_de_lesiones
+
+  mecanismo_de_lesion:
+    - accidente_de_trafico
+    - tipo_de_vehiculo
+    - ocupante
+    - velocidad_de_colision
+    - scq
+    - caida
+    - altura_en_metros
+    - tipo_de_superficie
+
+  examen_fisico:
+    - descripcion_del_examen_fisico
+    - mecanismo_primario
+
+  signos_vitales:
+    - perdida_de_conciencia
+    - duracion_de_la_perdida_de_conciencia
+    - gcs_ocular
+    - gcs_verbal
+    - gcs_motora
+    - gcs_total
+
+  puntuacion_de_severidad:
+    - iss
+    - cabeza
+    - cara
+    - torax
+    - abdomen
+    - extremidades
+    - externo
+    # SIN EQUIVALENTE en REDCap (puntajes y conteos de severidad)
+    - kts
+    - rts
+    - triss_contuso
+    - triss_penetrante
+    - numero_de_lesiones_serias
+
+  hospitalizacion:
+    - fecha_de_admision
+    - fecha_y_hora_de_alta
+    - dias_de_hospitalizacion
+    - detalles_de_hospitalizacion
+    - disposicion_o_destino_del_paciente_hospitalizacion
+    - donacion_de_organos_hospitalizacion
+    - autopsia_hospitalizacion
+    - muerte_prevenible_hospitalizacion
+
+  uci:
+    - uci_dias
+
+  liquidos:
+    - sangre_l
+    - coloides_l
+    - cristaloides_l
+
+  # SIN EQUIVALENTE en REDCap: en el Excel la disposicion de urgencias y la de hospitalizacion son dos
+  # conjuntos de columnas; REDCap solo tiene uno (dentro de hospitalizacion).
+  atencion_urgencias:
+    - fecha_y_hora_de_llegada_del_medico
+    - fecha_y_hora_de_la_disposicion
+    - tiempo_en_sala_de_emergencias_hora
+    - tiempo_en_sala_de_emergencias_minutos
+    - tipo_de_admision
+    - servicio_que_atendio
+    - disposicion_o_destino_del_paciente
+    - donacion_de_organos
+    - autopsia
+    - muerte_prevenible
+
+  # SIN EQUIVALENTE: ambas columnas se excluyen en la transformacion (9 filas informadas; REDCap no las toma)
+  hallazgos_pendientes:
+    - hallazgos_clinicos_1
+    - hallazgos_clinicos_2
+
+  # SIN EQUIVALENTE: diagnostico en texto libre y residuos del prehospitalario (el resto del prehospitalario se excluyo)
+  por_definir:
+    - descripcion_del_diagnostico
+    - numero_de_registro_del_transporte
+    - ciudad_hospital_mas_cercano_al_sitio_del_incidente
+
+  # Direcciones: se excluyen como en REDCap; direccion_nombre_del_lugar pasa a lugar_del_evento (limpieza de
+  # privacidad y 12 etiquetas de REDCap). El bloque conserva su nombre porque el contrato lo usa.
+  # (nombre y apellidos ya se excluyeron.)
+  identificadores_pendientes:
+    - direccion_linea_1
+    - direccion_linea_2
+    - direccion_nombre_del_lugar

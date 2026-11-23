@@ -1,0 +1,35 @@
+# Renombres semánticos de columnas -- SOLO para el transformer de REDCap.
+# Claves  = nombre tal como sale de REDCap tras normalizar_columnas (minúsculas, ASCII).
+# Valores = nombre corregido.
+# Se aplica justo después de la normalización estructural (paso T1 del plan de transformación).
+# Para el Excel histórico se usará un archivo propio; no reutilizar este.
+
+# 1. Acentos o eñes perdidos al generar el nombre de la variable en REDCap
+direcci_n: direccion
+informacin_demogrfica_complete: informacion_demografica_complete
+examen_fsico_complete: examen_fisico_complete
+cie_10_diagnsticos_complete: cie_10_diagnosticos_complete
+lquidos_complete: liquidos_complete
+
+# 2. Errores ortográficos o de espaciado en el origen
+auptosia: autopsia
+fensicilidina: fenciclidina
+coleides: coloides
+fecha_y_hora_de_llegada_delpaciente: fecha_y_hora_de_llegada_del_paciente
+
+# 3. Nombres truncados por el límite de longitud de variable de REDCap
+fecha_y_hora_de_procedimie: fecha_y_hora_de_procedimiento
+fecha_y_hora_de_fin_procedimie: fecha_y_hora_de_fin_procedimiento
+
+# 4. Idioma inconsistente con el resto del esquema
+temperature: temperatura
+weight: peso
+height: altura
+
+# 5. Nombres comunes con el Excel histórico, definidos por el usuario (2026-10-22)
+co_morbilidades: cie_10_comorbilidades
+codigo_cie_10_diagnostico_definitivo: cie_10_diagnostico_definitivo
+complicaciones_de_hospitalizacion: cie_10_complicaciones_de_hospitalizacion
+codigos_cie10_mecanismos_de_lesiones_de_transito: cie10_mecanismos_de_lesiones_de_transito
+codigos_cie_10_otros_mecanismo_de_lesiones_excluye_de_transito: cie_10_otros_mecanismos_de_lesion_excluye_transito
+lugar: lugar_uci

@@ -1,0 +1,18 @@
+# Etiqueta canonica de los codigos CIE-10 que el catalogo de REDCap ofrece con dos redacciones del mismo
+# diagnostico (diferencia solo de redaccion: coma, corchetes, espacio, concordancia). Dos miembros para el
+# mismo diagnostico partirian los conteos en Power BI.
+#
+# Regla: se conserva TEXTUAL una de las opciones existentes en REDCap (no se escribe una etiqueta nueva), la mas
+# cercana a la redaccion oficial de la CIE-10. Se aplica a las dos fuentes: los registros de REDCap con la otra
+# redaccion se reasignan a esta (registrar_correccion) y el Excel se mapea directamente a esta.
+#
+# NO aplica a las parejas con y sin * / †: son dos miembros distintos de la dimension († etiologia, * manifestacion).
+#
+# codigo: linea canonica "CODIGO ETIQUETA" (copiada del catalogo; entre parentesis la linea de origen)
+etiquetas_canonicas:
+  B24: "B24 ENFERMEDAD POR VIRUS DE LA INMUNODEFICIENCIA HUMANA [ VIH ], SIN OTRA ESPECIFICACION"  # (470) corchetes, como la CIE-10
+  F03: "F03 DEMENCIA , NO ESPECIFICADA"                                                             # (55)  con coma; se conserva el espacio original
+  I64: "I64 ACCIDENTE VASCULAR ENCEFALICO AGUDO, NO ESPECIFICADO COMO HEMORRAGICO O ISQUEMICO"      # (108) con coma
+  R31: "R31 HEMATURIA, NO ESPECIFICADA"                                                             # (2187) con coma
+  T07: "T07 TRAUMATISMOS MULTIPLES, NO ESPECIFICADOS"                                               # (1710) con coma
+  V98: "V98 OTROS ACCIDENTES DE TRANSPORTE ESPECIFICADOS"                                           # (604) la 1826 tiene error de concordancia

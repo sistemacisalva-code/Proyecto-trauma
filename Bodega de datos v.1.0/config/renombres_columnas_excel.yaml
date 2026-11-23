@@ -1,0 +1,39 @@
+# Renombres semanticos de columnas -- SOLO para el transformer del Excel historico.
+# Estructura: hoja -> {nombre original exacto del Excel: nombre nuevo}.
+# Se aplica ANTES de normalizar (las claves son los nombres originales, con tildes y mayusculas).
+# Por hoja y no global: varios nombres se repiten en hojas distintas con significado distinto.
+# Para REDCap se usa renombres_columnas_redcap.yaml; no mezclar.
+
+registro_trauma:
+  # 1. Colision de normalizacion: los nombres _1 y _2 solo la evitan; ambas columnas se excluyen en la transformacion
+  "Hallazgos Clínicos": hallazgos_clinicos_1
+  "Hallazgos clínicos": hallazgos_clinicos_2
+
+  # 2. Alineacion con los nombres que ya usa REDCap
+  "Num. doc. de ident": numero_de_identificacion
+  "Altura (metros)": altura_en_metros
+  "Duración de pérdida de conciencia": duracion_de_la_perdida_de_conciencia
+
+  # 3. Sufijo de exportacion ("del hospitalizacion").
+  # El sufijo _hospitalizacion se conserva: distingue estas columnas de las de urgencias con el mismo nombre.
+  # Las columnas de referencias/contra-referencia que tambien lo traian se excluyen del DW (no se renombran).
+  "Disposición o destino del paciente del hospitalización": disposicion_o_destino_del_paciente_hospitalizacion
+  "Donación de Organos del hospitalización": donacion_de_organos_hospitalizacion
+  "Autopsia del hospitalización": autopsia_hospitalizacion
+  "Muerte prevenible del hospitalización": muerte_prevenible_hospitalizacion
+
+signos_vitales:
+  "Temperatura (Celsius)": temperatura
+  "Peso (kg)": peso
+  "Altura (metros)": altura
+  "Duración de pérdida de conciencia": duracion_de_la_perdida_de_conciencia
+
+procedimientos:
+  "Fecha y Hora de inicio": fecha_y_hora_de_procedimiento
+  "Fecha y Hora de termino": fecha_y_hora_de_fin_procedimiento
+
+imagenes:
+  "Descripción": descripcion_imagen    # alinea con DIM_IMAGEN, igual que en REDCap
+
+tiempo_uci:
+  "ICUDays": uci_dias                  # idioma; validar si es el mismo dato que registro_trauma.uci_dias

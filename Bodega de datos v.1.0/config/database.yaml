@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: ${DB_NAME_DEV}
+  username: ${DB_USER_DEV}
+  password: ${DB_PASSWORD}
+  reader: ${DB_READER_USER}
+  reader_password: ${DB_READER_PASSWORD}
+  host: ${DB_HOST}
+  port: ${DB_PORT}
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: ${DB_NAME_PROD}
+  username: ${DB_USER_PROD}
+  password: ${DB_PASSWORD_PROD}
+  reader: ${DB_READER_USER_PROD}
+  reader_password: ${DB_READER_PASSWORD_PROD}
+  host: ${DB_HOST_PROD}
+  port: ${DB_PORT_PROD}

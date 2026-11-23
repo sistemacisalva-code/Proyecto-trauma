@@ -1,0 +1,40 @@
+mapa_proyecto.md
+docs/interno/
+docs/sustentacion/
+.env
+venv
+data/
+AGENTS.md
+CLAUDE.md
+GEMINI.md
+.claudeignore
+.claude/
+scripts/
+# Python cache / bytecode
+__pycache__/
+*.pyc
+
+# Pytest cache
+.pytest_cache/
+
+# DDL archivado para trazabilidad y rollback (copias locales, no se versionan)
+database/archivados/
+
+# Listas de valores permitidos (QR-DOM-04): salen de los valores reales del staging; la plantilla es valores_permitidos.example.yaml
+config/valores_permitidos.yaml
+informe_pruebas.xml
+.coverage
+htmlcov/
+
+
+demostracion/
+# Base de diagnóstico consolidada
+diagnostico_consolidado/
+
+# Power BI: un reporte conectado y actualizado guarda los datos importados; nunca se versiona
+*.pbix
+*.pbip
+*.Report/
+*.SemanticModel/
+.pbi/
+*.abf

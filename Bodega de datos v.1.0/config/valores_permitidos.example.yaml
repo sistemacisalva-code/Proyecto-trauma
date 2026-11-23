@@ -1,0 +1,36 @@
+# Plantilla de las listas de valores permitidos (QR-DOM-04).
+#
+# Copia este archivo como `config/valores_permitidos.yaml` y deja en él los valores válidos de cada atributo. Si
+# `valores_permitidos.yaml` no existe, QR-DOM-04 no se evalúa. El archivo real no se versiona (.gitignore): sale de los
+# valores reales del staging.
+#
+# Qué es la lista: el dominio APROBADO de cada atributo, no un reflejo de los datos. No se actualiza sola con lo que llega
+# en cada carga: si fuera así, cualquier valor nuevo (incluido un error de digitación) quedaría permitido y la regla no
+# detectaría nada. Un valor nuevo se agrega aquí solo después de decidir que es legítimo.
+#
+# Cómo armarla: `scripts/valores_permitidos.py` genera un borrador con los valores que hoy trae el staging
+# (`scripts/valores_permitidos_borrador.yaml`). Revísalo, quita lo que no sea válido y cópialo aquí. Cuando llegue una
+# carga nueva, la última celda del script muestra solo los valores que no están en esta lista.
+#
+# Formato: {dimensión: {atributo: [valores]}}, con los nombres de `config/contratos/completo.yaml` (solo las dimensiones
+# de tipo `dimension`; los catálogos de los puentes, como `dim_mecanismo_primario`, no llevan lista por ahora).
+#
+# Reglas:
+# - Escribe TODOS los valores entre comillas dobles: sin comillas, YAML lee No/Si/Yes como booleano y 10 como número, y el
+#   archivo se rechaza.
+# - Escribe los valores tal como quedan en la bodega (mayúsculas, tildes y espacios incluidos).
+# - 'Sin dato' y 'No aplica' son miembros por defecto de la carga: no hace falta listarlos.
+# - Un atributo que no aparece aquí no se evalúa. Déjalo fuera si su dominio crece con el tiempo (por ejemplo,
+#   nacionalidad) o si es texto libre.
+# - Un valor que solo trae una fuente es válido si es una opción real de esa fuente (el Excel histórico tiene opciones
+#   que REDCap no ofrece); si es la misma categoría escrita distinto, se corrige en la transformación, no aquí.
+# - Es una advertencia, no bloquea la carga: cuenta los miembros de la dimensión con un valor fuera de la lista.
+#
+# Los valores de abajo son solo de ejemplo de formato; reemplázalos.
+dim_paciente:
+  genero:
+    - "VALOR-DE-EJEMPLO-1"
+    - "VALOR-DE-EJEMPLO-2"
+# dim_desenlace:
+#   autopsia:
+#     - "VALOR-DE-EJEMPLO-1"

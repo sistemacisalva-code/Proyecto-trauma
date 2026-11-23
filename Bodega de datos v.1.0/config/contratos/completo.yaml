@@ -1,0 +1,294 @@
+# Contrato de carga del modelo completo (esquema trauma_completo, DDL v2 del 2026-10-26).
+# Forma y reglas: docstring de etl/load/warehouse/contrato.py, que también lo valida.
+#
+# El contrato selecciona, renombra y resuelve claves; no limpia. Lectura rápida:
+#   origen: {excel: tabla.columna, redcap: tabla.columna}   null = esa fuente no trae la variable
+#   staging: grano de cada tabla. "varias" + "toma: primera" = se toma una fila por atención: la primera según
+#            "orden" (o el orden del staging) que tenga algún valor en las columnas que pide el contrato. La misma
+#            fila alimenta todas las columnas que salen de esa tabla (los signos vitales son de una sola toma).
+#   Dimensiones: la carga escribe 'Sin dato' en un atributo de texto vacío; si todos están vacíos, la fila es
+#            'Sin dato' o, con "vacio: no_aplica", 'No aplica' (mecanismo que no ocurrió). Medidas y fechas: NULL.
+#   Puentes: cada fila de "filas" con algún valor en sus columnas es una fila del puente.
+
+modelo: completo
+version: 1
+
+staging:
+  excel:
+    informacion_demografica: {grano: atencion}
+    motivo_de_consulta: {grano: atencion}
+    identificadores_pendientes: {grano: atencion}    # aquí vive el lugar del evento (decisión 3.13 del Excel)
+    mecanismo_de_lesion: {grano: atencion}
+    examen_fisico: {grano: atencion}                 # mecanismo primario: uno por atención, se copia a cada lesión
+    puntuacion_de_severidad: {grano: atencion}
+    atencion_urgencias: {grano: atencion}            # desenlace: columnas sin el sufijo _hospitalizacion
+    hospitalizacion: {grano: atencion}
+    uci: {grano: atencion}
+    liquidos: {grano: atencion}
+    signos_vitales: {grano: varias, toma: primera, orden: [fecha_y_hora_de_signos_vitales]}
+    laboratorio: {grano: varias, toma: primera, orden: [fecha_y_hora_de_laboratorio]}
+    # Hojas hijas: en REDCap son una variable por atención; aquí, la primera fila del staging (decidido 2026-10-27:
+    # las filas extra son pocas, p. ej. arma blanca 43 atenciones, y quedan contadas como otra_toma)
+    violencia: {grano: varias, toma: primera}
+    envenenamiento: {grano: varias, toma: primera}
+    quemaduras: {grano: varias, toma: primera}
+    colisiones: {grano: varias, toma: primera}
+    arma_fuego: {grano: varias, toma: primera}
+    arma_blanca: {grano: varias, toma: primera}
+    calificador_gcs: {grano: varias, toma: primera}
+    # Filas de puentes
+    abuso_sustancias: {grano: varias}
+    tipo_violencia: {grano: varias}                  # hoja de lesiones del Excel
+    imagenes: {grano: varias}
+    procedimientos: {grano: varias}
+    complicaciones_hospitalizacion: {grano: varias}
+    cie_10_diagnostico_definitivo: {grano: varias}
+    cie_10_comorbilidades: {grano: varias}
+    cie10_mecanismos_de_lesiones_de_transito: {grano: varias}
+    cie_10_otros_mecanismos_de_lesion_excluye_transito: {grano: varias}
+  redcap:
+    informacion_demografica: {grano: atencion}
+    motivo_de_consulta: {grano: atencion}            # también filas del puente de sustancias (selección única)
+    mecanismo_de_lesion: {grano: atencion}           # también filas de los roles CIE-10 de mecanismo
+    puntuacion_de_severidad: {grano: atencion}
+    hospitalizacion: {grano: atencion}
+    uci: {grano: atencion}
+    liquidos: {grano: atencion}
+    signos_vitales: {grano: varias, toma: primera, orden: [fecha_y_hora_de_signos_vitales]}
+    laboratorio: {grano: varias, toma: primera, orden: [fecha_y_hora_de_laboratorio]}
+    examen_fisico: {grano: varias}                   # una fila por lesión, con su mecanismo primario
+    imagenes: {grano: varias}
+    procedimientos: {grano: varias}
+    complicaciones: {grano: varias}
+    cie_10_diagnosticos: {grano: varias}
+    comorbilidades: {grano: varias}
+
+tablas:
+  # ===== Tiempo (generadas, no salen del staging) =====
+  dim_tiempo:
+    tipo: calendario
+    columnas:
+      fecha: {generado: fecha}
+      dia: {generado: dia}
+      mes: {generado: mes}
+      nombre_mes: {generado: nombre_mes}
+      trimestre: {generado: trimestre}
+      anio: {generado: anio}
+      dia_semana: {generado: dia_semana}
+      es_festivo: {generado: es_festivo, etiquetas: {verdadero: "SI", falso: "NO"}}  # sin comillas, YAML lee NO como false
+
+  dim_horario:
+    tipo: horario
+    columnas:
+      hora_larga: {generado: hora_larga}
+      hora: {generado: hora}
+      minuto: {generado: minuto}
+      intervalo: {generado: intervalo}
+
+  # ===== Dimensiones del hecho =====
+  dim_paciente:
+    tipo: dimension
+    columnas:
+      quinquenio: {origen: {excel: informacion_demografica.quinquenio_edad, redcap: informacion_demografica.quinquenio_edad}}
+      quinquenio_orden: {origen: {excel: informacion_demografica.quinquenio_orden, redcap: informacion_demografica.quinquenio_orden}}
+      estado_civil: {origen: {excel: informacion_demografica.estado_civil, redcap: informacion_demografica.estado_civil}}
+      genero: {origen: {excel: informacion_demografica.genero, redcap: informacion_demografica.genero}}
+      nacionalidad: {origen: {excel: informacion_demografica.nacionalidad, redcap: informacion_demografica.nacionalidad}}
+      tipo_seguro: {origen: {excel: informacion_demografica.tipo_de_seguro, redcap: informacion_demografica.tipo_de_seguro}}
+      paciente_asegurado: {origen: {excel: informacion_demografica.paciente_asegurado, redcap: informacion_demografica.paciente_asegurado}}
+
+  dim_evento_trauma:
+    tipo: dimension
+    columnas:
+      consumo_alcohol: {origen: {excel: motivo_de_consulta.consumo_de_alcohol, redcap: motivo_de_consulta.consumo_de_alcohol}}
+      violencia: {origen: {excel: violencia.violencia, redcap: motivo_de_consulta.violencia}}
+      envenenamiento: {origen: {excel: envenenamiento.envenenamiento, redcap: mecanismo_de_lesion.envenenamiento}}
+      lugar_evento: {origen: {excel: identificadores_pendientes.lugar_del_evento, redcap: motivo_de_consulta.lugar_del_evento}}
+
+  dim_caida:
+    tipo: dimension
+    vacio: no_aplica
+    columnas:
+      caida: {origen: {excel: mecanismo_de_lesion.lesiones_de_caidas, redcap: mecanismo_de_lesion.lesiones_de_caidas}}
+      tipo_superficie: {origen: {excel: mecanismo_de_lesion.tipo_de_superficie, redcap: mecanismo_de_lesion.tipo_de_superficie}}
+
+  dim_quemadura:
+    tipo: dimension
+    vacio: no_aplica
+    columnas:
+      quemadura: {origen: {excel: quemaduras.quemadura, redcap: mecanismo_de_lesion.quemadura}}
+      grado_quemadura: {origen: {excel: quemaduras.grado_de_quemadura, redcap: mecanismo_de_lesion.grado_de_quemadura}}
+
+  dim_accidente_transito:
+    tipo: dimension
+    vacio: no_aplica
+    columnas:
+      velocidad_colision: {origen: {excel: mecanismo_de_lesion.velocidad_de_colision, redcap: mecanismo_de_lesion.velocidad_de_colision}}
+      tipo_vehiculo: {origen: {excel: mecanismo_de_lesion.tipo_de_vehiculo, redcap: mecanismo_de_lesion.tipo_de_vehiculo}}
+      ocupante: {origen: {excel: mecanismo_de_lesion.ocupante, redcap: mecanismo_de_lesion.ocupante}}
+      tipo_colision: {origen: {excel: colisiones.tipo_de_colision, redcap: mecanismo_de_lesion.tipo_de_colision}}
+
+  dim_armas:
+    tipo: dimension
+    vacio: no_aplica
+    columnas:
+      lesion_arma_fuego: {origen: {excel: arma_fuego.lesiones_por_arma_de_fuego, redcap: mecanismo_de_lesion.lesiones_por_arma_de_fuego}}
+      lesion_arma_blanca: {origen: {excel: arma_blanca.lesiones_por_armas_blancas_laceraciones, redcap: mecanismo_de_lesion.lesiones_por_armas_blancas_laceraciones}}
+
+  dim_desenlace:
+    tipo: dimension
+    columnas:
+      disposicion_paciente: {origen: {excel: atencion_urgencias.disposicion_o_destino_del_paciente, redcap: hospitalizacion.disposicion_o_destino_del_paciente}}
+      muerte_prevenible: {origen: {excel: atencion_urgencias.muerte_prevenible, redcap: hospitalizacion.muerte_prevenible}}
+      donacion_organos: {origen: {excel: atencion_urgencias.donacion_de_organos, redcap: hospitalizacion.donacion_de_organos}}
+      autopsia: {origen: {excel: atencion_urgencias.autopsia, redcap: hospitalizacion.autopsia}}
+
+  dim_calificador_signos:
+    tipo: dimension
+    columnas:
+      perdida_conciencia: {origen: {excel: signos_vitales.perdida_de_conciencia, redcap: signos_vitales.perdida_de_conciencia}}
+      avup: {origen: {excel: signos_vitales.avup, redcap: signos_vitales.avup}}
+      calificador_gcs: {origen: {excel: calificador_gcs.calificador_gcs, redcap: signos_vitales.calificador_gcs}}
+      calificador_frecuencia_respiratoria: {origen: {excel: signos_vitales.calificador_de_la_frecuencia_respiratoria, redcap: signos_vitales.calificador_de_la_frecuencia_respiratoria}}
+
+  # ===== Catálogos de los puentes (sus valores llegan por la FK que los usa) =====
+  dim_parte_cuerpo_lesion: {tipo: catalogo, columna: parte_cuerpo}
+  dim_mecanismo_primario: {tipo: catalogo, columna: mecanismo_primario}
+  dim_tipo_lesion: {tipo: catalogo, columna: tipo_lesion}
+  dim_cie_10: {tipo: catalogo, columna: cie_10, sin_mapeo: SIN CODIGO CIE-10}
+  dim_sustancia: {tipo: catalogo, columna: sustancia}
+  dim_procedimiento: {tipo: catalogo, columna: procedimientos}
+
+  dim_imagen:
+    tipo: dimension
+    columnas:
+      tipo_imagen: {origen: {excel: imagenes.tipo_de_imagen, redcap: imagenes.tipo_de_imagen}}
+      parte_cuerpo: {origen: {excel: imagenes.parte_del_cuerpo_imagenes, redcap: imagenes.parte_del_cuerpo_imagenes}}
+
+  # ===== Hecho: una fila por atención =====
+  fact_trauma:
+    tipo: hecho
+    filas: {excel: informacion_demografica, redcap: informacion_demografica}
+    columnas:
+      trauma_register_id: {origen: {excel: informacion_demografica.trauma_register_id, redcap: informacion_demografica.trauma_register_id}}
+      # Fechas: admisión = llegada del paciente; hospitalización = admisión a la hospitalización
+      fecha_admision_id: {resolucion: calendario, origen: {excel: informacion_demografica.fecha_y_hora_de_llegada_del_paciente, redcap: informacion_demografica.fecha_y_hora_de_llegada_del_paciente}}
+      fecha_hospitalizacion_id: {resolucion: calendario, origen: {excel: hospitalizacion.fecha_de_admision, redcap: hospitalizacion.fecha_de_admision}}
+      fecha_alta_id: {resolucion: calendario, origen: {excel: hospitalizacion.fecha_y_hora_de_alta, redcap: hospitalizacion.fecha_y_hora_de_alta}}
+      hora_alta_id: {resolucion: horario, origen: {excel: hospitalizacion.fecha_y_hora_de_alta, redcap: hospitalizacion.fecha_y_hora_de_alta}}
+      # Dimensiones
+      paciente_id: {resolucion: dimension, dimension: dim_paciente}
+      evento_id: {resolucion: dimension, dimension: dim_evento_trauma}
+      caida_id: {resolucion: dimension, dimension: dim_caida}
+      quemadura_id: {resolucion: dimension, dimension: dim_quemadura}
+      accidente_id: {resolucion: dimension, dimension: dim_accidente_transito}
+      armas_id: {resolucion: dimension, dimension: dim_armas}
+      desenlace_id: {resolucion: dimension, dimension: dim_desenlace}
+      calificador_signos_id: {resolucion: dimension, dimension: dim_calificador_signos}
+      # Medidas de la primera toma de signos vitales
+      peso: {origen: {excel: signos_vitales.peso, redcap: signos_vitales.peso}}
+      altura: {origen: {excel: signos_vitales.altura, redcap: signos_vitales.altura}}
+      gcs_ocular: {origen: {excel: signos_vitales.gcs_ocular, redcap: signos_vitales.gcs_ocular}}
+      gcs_verbal: {origen: {excel: signos_vitales.gcs_verbal, redcap: signos_vitales.gcs_verbal}}
+      gcs_motor: {origen: {excel: signos_vitales.gcs_motora, redcap: signos_vitales.gcs_motora}}
+      duracion_perdida_conciencia: {origen: {excel: signos_vitales.duracion_de_la_perdida_de_conciencia, redcap: signos_vitales.duracion_de_la_perdida_de_conciencia}}
+      presion_sistolica: {origen: {excel: signos_vitales.presion_arterial_sistolica, redcap: signos_vitales.presion_arterial_sistolica}}
+      presion_diastolica: {origen: {excel: signos_vitales.presion_arterial_diastolica, redcap: signos_vitales.presion_arterial_diastolica}}
+      frecuencia_cardiaca: {origen: {excel: signos_vitales.frecuencia_cardiaca, redcap: signos_vitales.frecuencia_cardiaca}}
+      frecuencia_respiratoria: {origen: {excel: signos_vitales.frecuencia_respiratoria, redcap: signos_vitales.frecuencia_respiratoria}}
+      saturacion_o2: {origen: {excel: signos_vitales.saturacion_de_oxigeno, redcap: signos_vitales.saturacion_de_oxigeno}}
+      temperatura_c: {origen: {excel: signos_vitales.temperatura, redcap: signos_vitales.temperatura}}
+      # Gases arteriales: primera toma con PaO2 o PaCO2
+      pao2: {origen: {excel: laboratorio.pao2, redcap: laboratorio.pao2}}
+      paco2: {origen: {excel: laboratorio.paco2, redcap: laboratorio.paco2}}
+      # Mecanismo de la caída y SCQ de la quemadura
+      altura_metros: {origen: {excel: mecanismo_de_lesion.altura_en_metros, redcap: mecanismo_de_lesion.altura_en_metros}}
+      scq: {origen: {excel: mecanismo_de_lesion.scq, redcap: mecanismo_de_lesion.scq}}
+      # Severidad
+      iss: {origen: {excel: puntuacion_de_severidad.iss, redcap: puntuacion_de_severidad.iss}}
+      cabeza: {origen: {excel: puntuacion_de_severidad.cabeza, redcap: puntuacion_de_severidad.cabeza}}
+      cara: {origen: {excel: puntuacion_de_severidad.cara, redcap: puntuacion_de_severidad.cara}}
+      torax: {origen: {excel: puntuacion_de_severidad.torax, redcap: puntuacion_de_severidad.torax}}
+      abdomen: {origen: {excel: puntuacion_de_severidad.abdomen, redcap: puntuacion_de_severidad.abdomen}}
+      extremidades: {origen: {excel: puntuacion_de_severidad.extremidades, redcap: puntuacion_de_severidad.extremidades}}
+      externo: {origen: {excel: puntuacion_de_severidad.externo, redcap: puntuacion_de_severidad.externo}}
+      # Estancia y recursos
+      dias_hospitalizacion: {origen: {excel: hospitalizacion.dias_de_hospitalizacion, redcap: hospitalizacion.dias_de_hospitalizacion}}
+      uci_dias: {origen: {excel: uci.dias_usados_uci, redcap: uci.dias_usados_uci}}
+      sangre_l: {origen: {excel: liquidos.sangre, redcap: liquidos.sangre}}
+      # Texto libre degenerado
+      motivo_consulta: {origen: {excel: motivo_de_consulta.motivo_de_consulta, redcap: motivo_de_consulta.motivo_de_consulta}}
+      otras_sustancias_de_abuso: {origen: {excel: motivo_de_consulta.otras_sustancias_de_abuso, redcap: motivo_de_consulta.otras_sustancias_de_abuso}}
+      detalles_hospitalizacion: {origen: {excel: hospitalizacion.detalles_de_hospitalizacion, redcap: hospitalizacion.detalles_de_hospitalizacion}}
+
+  # ===== Puentes =====
+  bridge_atencion_lesion:
+    tipo: puente
+    filas: {excel: tipo_violencia, redcap: examen_fisico}
+    columnas:
+      # Todas las lesiones, aunque se repitan; la secuencia identifica la lesión, no es un orden clínico
+      secuencia: {resolucion: secuencia}
+      parte_cuerpo_lesion_id: {resolucion: dimension, dimension: dim_parte_cuerpo_lesion, origen: {excel: tipo_violencia.parte_del_cuerpo, redcap: examen_fisico.parte_del_cuerpo}}
+      tipo_lesion_id: {resolucion: dimension, dimension: dim_tipo_lesion, origen: {excel: tipo_violencia.tipo_de_lesion, redcap: examen_fisico.tipo_de_lesion}}
+      # Excel: uno por atención (examen_fisico), copiado a cada lesión; REDCap: el de cada lesión
+      mecanismo_primario_id: {resolucion: dimension, dimension: dim_mecanismo_primario, origen: {excel: examen_fisico.mecanismo_primario, redcap: examen_fisico.mecanismo_primario}}
+
+  bridge_atencion_imagen:
+    tipo: puente
+    filas: {excel: imagenes, redcap: imagenes}
+    columnas:
+      secuencia: {resolucion: secuencia}
+      imagen_id: {resolucion: dimension, dimension: dim_imagen}
+      descripcion_imagen: {origen: {excel: imagenes.descripcion_imagen, redcap: imagenes.descripcion_imagen}}
+
+  # texto_origen: el texto del staging solo si no se mapeó (NULL si tiene código; en REDCap siempre NULL). Las
+  # repeticiones exactas (mismo código o texto, mismo rol) se unen y cuentan como duplicado
+  bridge_atencion_cie_10:
+    tipo: puente
+    por_rol:
+      diagnostico:
+        filas: {excel: cie_10_diagnostico_definitivo, redcap: cie_10_diagnosticos}
+        columnas:
+          cie_10_id: {resolucion: dimension, dimension: dim_cie_10, origen: {excel: cie_10_diagnostico_definitivo.cie_10_diagnostico_definitivo, redcap: cie_10_diagnosticos.cie_10_diagnostico_definitivo}, mapeado: {excel: cie_10_diagnostico_definitivo.cie10_mapeado, redcap: null}}
+          texto_origen: {resolucion: texto_sin_mapeo, de: cie_10_id}
+      comorbilidad:
+        filas: {excel: cie_10_comorbilidades, redcap: comorbilidades}
+        columnas:
+          cie_10_id: {resolucion: dimension, dimension: dim_cie_10, origen: {excel: cie_10_comorbilidades.cie_10_comorbilidades, redcap: comorbilidades.cie_10_comorbilidades}, mapeado: {excel: cie_10_comorbilidades.cie10_mapeado, redcap: null}}
+          texto_origen: {resolucion: texto_sin_mapeo, de: cie_10_id}
+      mecanismo_transito:
+        filas: {excel: cie10_mecanismos_de_lesiones_de_transito, redcap: mecanismo_de_lesion}
+        columnas:
+          cie_10_id: {resolucion: dimension, dimension: dim_cie_10, origen: {excel: cie10_mecanismos_de_lesiones_de_transito.cie10_mecanismos_de_lesiones_de_transito, redcap: mecanismo_de_lesion.cie10_mecanismos_de_lesiones_de_transito}, mapeado: {excel: cie10_mecanismos_de_lesiones_de_transito.cie10_mapeado, redcap: null}}
+          texto_origen: {resolucion: texto_sin_mapeo, de: cie_10_id}
+      otro_mecanismo:
+        filas: {excel: cie_10_otros_mecanismos_de_lesion_excluye_transito, redcap: mecanismo_de_lesion}
+        columnas:
+          cie_10_id: {resolucion: dimension, dimension: dim_cie_10, origen: {excel: cie_10_otros_mecanismos_de_lesion_excluye_transito.cie_10_otros_mecanismos_de_lesion_excluye_transito, redcap: mecanismo_de_lesion.cie_10_otros_mecanismos_de_lesion_excluye_transito}, mapeado: {excel: cie_10_otros_mecanismos_de_lesion_excluye_transito.cie10_mapeado, redcap: null}}
+          texto_origen: {resolucion: texto_sin_mapeo, de: cie_10_id}
+
+  # Misma regla que el CIE-10: una fila por complicación distinta, con el texto si no se mapeó
+  bridge_atencion_complicacion:
+    tipo: puente
+    filas: {excel: complicaciones_hospitalizacion, redcap: complicaciones}
+    columnas:
+      cie_10_id: {resolucion: dimension, dimension: dim_cie_10, origen: {excel: complicaciones_hospitalizacion.cie_10_complicaciones_de_hospitalizacion, redcap: complicaciones.cie_10_complicaciones_de_hospitalizacion}, mapeado: {excel: complicaciones_hospitalizacion.complicacion_cie10_mapeada, redcap: null}}
+      lugar_complicacion: {origen: {excel: complicaciones_hospitalizacion.lugar_de_complicacion, redcap: complicaciones.lugar_de_complicacion}}
+      texto_origen: {resolucion: texto_sin_mapeo, de: cie_10_id}
+
+  bridge_atencion_sustancia:
+    tipo: puente
+    filas: {excel: abuso_sustancias, redcap: motivo_de_consulta}
+    columnas:
+      sustancia_id: {resolucion: dimension, dimension: dim_sustancia, origen: {excel: abuso_sustancias.abuso_de_drogas, redcap: motivo_de_consulta.abuso_de_drogas}}
+
+  bridge_atencion_procedimiento:
+    tipo: puente
+    filas: {excel: procedimientos, redcap: procedimientos}
+    orden: {excel: [fecha_y_hora_de_procedimiento], redcap: [fecha_y_hora_de_procedimiento]}
+    columnas:
+      secuencia: {resolucion: secuencia}
+      procedimiento_id: {resolucion: dimension, dimension: dim_procedimiento, origen: {excel: procedimientos.procedimientos, redcap: procedimientos.procedimientos}}
+      fecha_inicio_id: {resolucion: calendario, origen: {excel: procedimientos.fecha_y_hora_de_procedimiento, redcap: procedimientos.fecha_y_hora_de_procedimiento}}
+      hora_inicio_id: {resolucion: horario, origen: {excel: procedimientos.fecha_y_hora_de_procedimiento, redcap: procedimientos.fecha_y_hora_de_procedimiento}}
+      duracion_seg: {origen: {excel: procedimientos.duracion_procedimiento_seg, redcap: procedimientos.duracion_procedimiento_seg}}
