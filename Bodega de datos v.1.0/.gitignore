@@ -1,7 +1,6 @@
 .env
 venv
 data/
-scripts/
 # Python cache / bytecode
 __pycache__/
 *.pyc
